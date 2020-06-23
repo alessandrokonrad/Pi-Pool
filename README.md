@@ -89,5 +89,16 @@ cardano-node run \
    --config ff-config.json
 ```
 
-That's it. Your node now starts to sync!
+That's it. Your node is now starting to sync!
 
+
+## Setup a stakepool
+Coming soon!
+
+
+## Cross-building
+If you want to build your own Cabal binary for aarch64 or a different version of Cabal, follow this guide.
+
+
+## Port forwarding
+Coming soon!

@@ -37,7 +37,7 @@ GHC 8.6.5 is perfectly fine, but we need a higher Cabal version (3.0).<br>
 
 4. Get Cabal 3.0 and remove Cabal 2.4:
 ```
-wget https://github.com/alessandrokonrad/Pi-Pool/blob/master/aarch64/cabal
+wget https://github.com/alessandrokonrad/Pi-Pool/blob/master/aarch64/cabal3.0/cabal
 mv cabal ~/.local/bin
 rm /usr/bin/cabal
 ```

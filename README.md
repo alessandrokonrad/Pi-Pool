@@ -77,7 +77,7 @@ wget https://hydra.iohk.io/job/Cardano/cardano-node/cardano-deployment/latest-fi
 wget https://hydra.iohk.io/job/Cardano/cardano-node/cardano-deployment/latest-finished/download/1/ff-topology.json
 
 ```
-You can change "ViewMode" from "SimpleView to "LiveView" in ff-config.json to get a fancy node monitor.<br>
+You can change "ViewMode" from "SimpleView to "LiveView" in ff-config.json to get a fancy node monitoring.<br>
 Now start the node:
 ```
 cardano-node run \
@@ -97,7 +97,7 @@ Coming soon!
 
 
 ## Cross-building
-If you want to build your own Cabal binary for aarch64 or a different version of Cabal, follow this guide.
+If you want to build your own Cabal binary for aarch64 or a different version of Cabal, follow <a href="/Crossbuilding.md">this</a> guide.
 
 
 ## Port forwarding

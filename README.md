@@ -17,31 +17,31 @@ Basically we have two different popular CPU architectures. Let's only consider 6
 
 This guide is currently for the Haskell Testnet (HTN)
 
-1. First of all let's update and upgrade our Ubuntu:
+#### 1. First of all let's update and upgrade our Ubuntu:
 ```
 sudo apt-get update
 sudo apt-get upgrade
 ```
 
-2. Install necessary dependencies:
+#### 2. Install necessary dependencies:
 ```
 sudo apt-get install build-essential pkg-config libffi-dev libgmp-dev libssl-dev libtinfo-dev libsystemd-dev zlib1g-dev make g++ tmux git jq wget libncursesw5 llvm neofetch -y
 
 ``` 
-3. Get the Haskell platform:
+#### 3. Get the Haskell platform:
 ```
 sudo apt-get install -y haskell-platform
 ```
 Now you should have GHC 8.6.5 and Cabal 2.4. You can check that with <code>ghc --version</code> and <code>cabal --version</code>.
 GHC 8.6.5 is perfectly fine, but we need a higher Cabal version (3.0).<br>
 
-4. Get Cabal 3.0 and remove Cabal 2.4:
+#### 4. Get Cabal 3.0 and remove Cabal 2.4:
 ```
 wget https://github.com/alessandrokonrad/Pi-Pool/raw/master/aarch64/cabal3.0/cabal
 mv cabal ~/.local/bin
 rm /usr/bin/cabal
 ```
-5. Add the new Cabal to PATH:
+#### 5. Add the new Cabal to PATH:
 
 Open the .bashrc file in your home directory and add at the bottom:
 ```
@@ -55,7 +55,7 @@ cabal update
 
 Now we are ready to build the Cardano-Node!
 
-6. Clone the cardano-node repository from GitHub and build it (this takes a while):
+#### 6. Clone the cardano-node repository from GitHub and build it (this takes a while):
 ```
 git clone https://github.com/input-output-hk/cardano-node.git
 cd cardano-node
@@ -66,7 +66,7 @@ cabal install cardano-cli cardano-node --installdir=~/.local/bin
 ```
 Finally we have our node. If everything worked fine, you should be able to type <code>cardano-cli</code> and <code>cardano-node</code>.
 
-7. Running a node:
+#### 7. Running a node:
 
 We need first of all some configuration files:
 ```

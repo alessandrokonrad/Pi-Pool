@@ -1,5 +1,7 @@
-<p align="center"><img width="60px" src="https://github.com/alessandrokonrad/Pi-Pool/blob/master/images/logo.svg"></img>
-<h1>Pi Pool</h1>
-</p>
+<p align="center"><img width="80px" src="https://github.com/alessandrokonrad/Pi-Pool/blob/master/images/logo.svg"></img></p>
 
-Cardano Stakepool on Raspberry Pi
+# Pi Pool
+
+A Cardano Stakepool on Raspberry Pi
+
+## Getting started

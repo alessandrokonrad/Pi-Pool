@@ -25,7 +25,7 @@ sudo apt-get upgrade
 
 2. Install necessary dependencies:
 ```
-sudo apt-get install build-essential pkg-config libffi-dev libgmp-dev libssl-dev libtinfo-dev libsystemd-dev zlib1g-dev make g++ tmux git jq wget libncursesw5 llvm -y
+sudo apt-get install build-essential pkg-config libffi-dev libgmp-dev libssl-dev libtinfo-dev libsystemd-dev zlib1g-dev make g++ tmux git jq wget libncursesw5 llvm neofetch -y
 
 ``` 
 3. Get the Haskell platform:
@@ -42,9 +42,52 @@ mv cabal ~/.local/bin
 rm /usr/bin/cabal
 ```
 5. Add the new Cabal to PATH:
+
 Open the .bashrc file in your home directory and add at the bottom:
 ```
-export PATH="~/.cabal/bin:$PATH"
 export PATH="~/.local/bin:$PATH"
 ```
-To make the the new PATH active you can either reboot the Pi or type <code>source .bashrc</code> from your home directory.
+To make the the new PATH active you can either reboot the Pi or type <code>source .bashrc</code> from your home directory. Then run:
+```
+cabal update
+```
+<br>
+
+Now we are ready to build the Cardano-Node!
+
+6. Clone the cardano-node repository from GitHub and build it (this takes a while):
+```
+git clone https://github.com/input-output-hk/cardano-node.git
+cd cardano-node
+git fetch --all --tags
+git checkout tags/1.13.0
+cabal build all
+cabal install cardano-cli cardano-node --installdir=~/.local/bin
+```
+Finally we have our node. If everything worked fine, you should be able to type <code>cardano-cli</code> and <code>cardano-node</code>.
+
+7. Running a node:
+
+We need first of all some configuration files:
+```
+mkdir pi-node
+cd pi-node
+wget https://hydra.iohk.io/job/Cardano/cardano-node/cardano-deployment/latest-finished/download/1/ff-config.json
+wget https://hydra.iohk.io/job/Cardano/cardano-node/cardano-deployment/latest-finished/download/1/ff-genesis.json
+wget https://hydra.iohk.io/job/Cardano/cardano-node/cardano-deployment/latest-finished/download/1/ff-topology.json
+
+```
+You can change "ViewMode" from "SimpleView to "LiveView" in ff-config.json to get a fancy node monitor.<br>
+Now start the node:
+```
+cardano-node run \
+   --topology ff-topology.json \
+   --database-path db \
+   --socket-path db/socket \
+   --host-addr 127.0.0.1 \
+   --port 3001 \
+   --config ff-config.json
+```
+
+That's it. Your node now starts to sync!
+

@@ -41,6 +41,8 @@ wget https://github.com/alessandrokonrad/Pi-Pool/raw/master/aarch64/cabal3.0/cab
 mv cabal ~/.local/bin
 rm /usr/bin/cabal
 ```
+You can also build your own cabal binary for aarch64. Look <a href="/Crossbuilding.md">here</a>.
+
 #### 5. Add the new Cabal to PATH:
 
 Open the .bashrc file in your home directory and add at the bottom:

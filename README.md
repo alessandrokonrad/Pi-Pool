@@ -68,7 +68,9 @@ echo -e "package cardano-crypto-praos\n  flags: -external-libsodium-vrf" > cabal
 git fetch --all --tags
 git checkout tags/1.14.0
 cabal build all
-cabal install cardano-cli cardano-node --installdir=$HOME/.local/bin --overwrite-policy=always
+cp -p dist-newstyle/build/aarch64-linux/ghc-8.6.5/cardano-node-1.14.0/x/cardano-node/build/cardano-node/cardano-node ~/.local/bin/
+cp -p dist-newstyle/build/aarch64-linux/ghc-8.6.5/cardano-cli-1.14.0/x/cardano-cli/build/cardano-cli/cardano-cli ~/.local/bin/
+
 ```
 Finally we have our node. If everything worked fine, you should be able to type <code>cardano-cli</code> and <code>cardano-node</code>.
 

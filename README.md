@@ -26,7 +26,7 @@ You might reboot your Pi afterwards.
 
 #### 2. Install necessary dependencies:
 ```
-sudo apt-get install build-essential pkg-config libffi-dev libgmp-dev libssl-dev libtinfo-dev libsystemd-dev zlib1g-dev make g++ tmux git jq wget libncursesw5 llvm -y
+sudo apt-get install libsodium-dev build-essential pkg-config libffi-dev libgmp-dev libssl-dev libtinfo-dev libsystemd-dev zlib1g-dev make g++ tmux git jq wget libncursesw5 llvm -y
 
 ``` 
 #### 3. Get the Haskell platform:
@@ -64,8 +64,9 @@ Now we are ready to build the Cardano-Node!
 ```
 git clone https://github.com/input-output-hk/cardano-node.git
 cd cardano-node
+echo -e "package cardano-crypto-praos\n  flags: -external-libsodium-vrf" > cabal.project.local
 git fetch --all --tags
-git checkout tags/1.13.0
+git checkout tags/1.14.0
 cabal build all
 cabal install cardano-cli cardano-node --installdir=$HOME/.local/bin --overwrite-policy=always
 ```

@@ -82,7 +82,7 @@ wget https://hydra.iohk.io/job/Cardano/cardano-node/cardano-deployment/latest-fi
 wget https://hydra.iohk.io/job/Cardano/cardano-node/cardano-deployment/latest-finished/download/1/shelley_testnet-topology.json
 
 ```
-You can change "ViewMode" from "SimpleView to "LiveView" in ff-config.json to get a fancy node monitoring.<br>
+You can change "ViewMode" from "SimpleView to "LiveView" in shelley_testnet-config.json to get a fancy node monitoring.<br>
 Now start the node:
 ```
 cardano-node run \

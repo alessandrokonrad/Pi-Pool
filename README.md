@@ -26,7 +26,7 @@ You might reboot your Pi afterwards.
 
 #### 2. Install necessary dependencies:
 ```
-sudo apt-get install build-essential pkg-config libffi-dev libgmp-dev libssl-dev libtinfo-dev libsystemd-dev zlib1g-dev make g++ tmux git jq wget libncursesw5 llvm neofetch -y
+sudo apt-get install build-essential pkg-config libffi-dev libgmp-dev libssl-dev libtinfo-dev libsystemd-dev zlib1g-dev make g++ tmux git jq wget libncursesw5 llvm -y
 
 ``` 
 #### 3. Get the Haskell platform:

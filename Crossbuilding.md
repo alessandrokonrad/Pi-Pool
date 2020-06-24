@@ -6,6 +6,6 @@ wget http://hackage.haskell.org/package/cabal-install-3.0.0.0/cabal-install-3.0.
 tar -xf cabal-install-3.0.0.0.tar.gz
 cd cabal-install-3.0.0.0
 cabal update
-cabal install --installdir=~/.local/bin
+cabal install --installdir=$HOME/.local/bin
 ```
 This could take some time. Now check with <code>cabal --version</code> your version.

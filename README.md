@@ -22,6 +22,7 @@ This guide is currently for the Haskell Testnet (HTN)
 sudo apt-get update
 sudo apt-get upgrade
 ```
+You might reboot your Pi afterwards.
 
 #### 2. Install necessary dependencies:
 ```

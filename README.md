@@ -77,21 +77,21 @@ We need first of all some configuration files:
 ```
 mkdir pi-node
 cd pi-node
-wget https://hydra.iohk.io/job/Cardano/cardano-node/cardano-deployment/latest-finished/download/1/ff-config.json
-wget https://hydra.iohk.io/job/Cardano/cardano-node/cardano-deployment/latest-finished/download/1/ff-genesis.json
-wget https://hydra.iohk.io/job/Cardano/cardano-node/cardano-deployment/latest-finished/download/1/ff-topology.json
+wget https://hydra.iohk.io/job/Cardano/cardano-node/cardano-deployment/latest-finished/download/1/shelley_testnet.json
+wget https://hydra.iohk.io/job/Cardano/cardano-node/cardano-deployment/latest-finished/download/1/shelley_testnet.json
+wget https://hydra.iohk.io/job/Cardano/cardano-node/cardano-deployment/latest-finished/download/1/shelley_testnet.json
 
 ```
 You can change "ViewMode" from "SimpleView to "LiveView" in ff-config.json to get a fancy node monitoring.<br>
 Now start the node:
 ```
 cardano-node run \
-   --topology ff-topology.json \
+   --topology shelley_testnet-topology.json \
    --database-path db \
    --socket-path db/socket \
    --host-addr 127.0.0.1 \
    --port 3001 \
-   --config ff-config.json
+   --config shelley_testnet-config.json
 ```
 
 That's it. Your node is now starting to sync!

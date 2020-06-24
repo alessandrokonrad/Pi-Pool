@@ -67,7 +67,7 @@ cd cardano-node
 git fetch --all --tags
 git checkout tags/1.13.0
 cabal build all
-cabal install cardano-cli cardano-node --installdir=~/.local/bin
+cabal install cardano-cli cardano-node --installdir=$HOME/.local/bin --overwrite-policy=always
 ```
 Finally we have our node. If everything worked fine, you should be able to type <code>cardano-cli</code> and <code>cardano-node</code>.
 

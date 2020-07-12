@@ -1,0 +1,32 @@
+#!/bin/bash
+
+tmux new -s cardano -d
+
+#creating windows
+tmux split-window -h -t cardano
+tmux select-pane -t 0
+
+tmux split-window -v -t cardano
+tmux select-pane -t 2
+tmux split-window -v -t cardano
+
+#core node
+CORE="~/pi-node"
+tmux select-pane -t 0
+tmux send-keys "cardano-node run --topology $CORE/shelley_testnet-topology.json --database-path $CORE/db --socket-path $CORE/db/socket --host-addr 0.0.0.0 --port 3000 --config $CORE/shelley_testnet-config.json --shelley-kes-key ~/pi-node/priv/pool/Pi_Pool/hot.skey --shelley-vrf-key ~/pi-node/priv/pool/Pi_Pool/vrf.skey --shelley-operational-certificate ~/pi-node/priv/pool/Pi_Pool/op.cert" C-m
+
+#wallet
+tmux select-pane -t 1
+tmux send-keys 'cd ~/pi-node/scripts && ./cntools.sh' C-m
+
+#relay node
+RELAY="~/relay"
+tmux select-pane -t 2
+tmux send-keys "cardano-node run --topology $RELAY/shelley_testnet-topology.json --database-path $RELAY/db --socket-path $RELAY/db/socket --host-addr 0.0.0.0 --port 3001 --config $RELAY/shelley_testnet-config.json" C-m
+
+#system performance
+tmux select-pane -t 3
+tmux send-keys 'htop' C-m
+
+
+tmux a -t cardano

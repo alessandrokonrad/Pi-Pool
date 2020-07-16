@@ -93,7 +93,7 @@ cardano-node run \
    --topology shelley_testnet-topology.json \
    --database-path db \
    --socket-path db/socket \
-   --host-addr 127.0.0.1 \
+   --host-addr 0.0.0.0 \
    --port 3001 \
    --config shelley_testnet-config.json
 ```

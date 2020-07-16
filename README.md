@@ -6,7 +6,7 @@ Pi Pool is a Cardano Stakepool on Raspberry Pi. Check out my <a href="https://pi
 This repository is a guide to setup a stakepool on a Raspberry Pi by your own.
 
 ## Why this guide
-Basically we have two different popular CPU architectures. Let's only consider 64-bit machines. Many of you know Intel and AMD. They primarily build their CPUs on a x86_64 architecture. Then there is ARM, which CPUs are built on the so called aarch64 architecure, and our Raspberry Pi has an aarch64 CPU. I don't want to dive any deeper in that, but the problem is, that the Cardano-Node setup is made for x86_64 machines and currently doesn't support aarch64 out of the box. The goal of this repository is to make it as easy as possible to run a Cardano-Node on Raspberry Pi.
+Basically we have two different popular CPU architectures. Let's only consider 64-bit machines. Many of you know Intel and AMD. They primarily build their CPUs on a x86_64 architecture. Then there is ARM, which CPUs are built on the so called aarch64 architecture, and our Raspberry Pi has an aarch64 CPU. I don't want to dive any deeper in that, but the problem is, that the Cardano-Node setup is made for x86_64 machines and currently doesn't support aarch64 out of the box. The goal of this repository is to make it as easy as possible to run a Cardano-Node on Raspberry Pi.
 
 ## Prerequesites
 
@@ -16,6 +16,7 @@ Basically we have two different popular CPU architectures. Let's only consider 6
 ## Getting started
 
 This guide is currently for the Haskell Testnet (HTN)
+<b>I will update the guide as soon as the the final mainnet candidate is out, at step 6 just replace the node version with the one you wish to install</b>
 
 #### 1. First of all let's update and upgrade our Ubuntu:
 ```

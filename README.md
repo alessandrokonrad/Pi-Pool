@@ -111,5 +111,5 @@ If you want to build your own Cabal binary for aarch64 or a different version of
 
 
 ## Port forwarding
-Go to your router settings. You can access them via your browser with the IP-Address of the router (e.g. 192.168.178.1 or if you have a FritzBox with fritz.box).
-Then look for a option Port Forwarding. Choose your relay node(s) IP-Address and open its/their port(s). Allow TCP and UDP. Then save it and that's it.
+Go to your router settings. You can access them via your browser with the IP address of the router (e.g. 192.168.178.1 or if you have a FritzBox with fritz.box).
+Then look for a option Port Forwarding. Choose the IP address of your relay node(s) and open its/their port(s). Allow TCP and UDP. Then save it and that's it.

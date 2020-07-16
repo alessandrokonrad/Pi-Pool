@@ -10,7 +10,7 @@ Basically we have two different popular CPU architectures. Let's only consider 6
 
 ## Prerequesites
 
-* Raspberry Pi 4 with 4 GB or 8 GB (recommended) RAM
+* Raspberry Pi 4 with 8GB RAM (4GB version works only with Swap partition as extra RAM) 
 * Ubuntu 20.04 LTS <b>64-bit</b> (Very easy to install with <a href="https://www.raspberrypi.org/downloads/">Pi Imager</a>)
 
 ## Getting started

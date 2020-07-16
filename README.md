@@ -95,7 +95,7 @@ cardano-node run \
    --database-path db \
    --socket-path db/socket \
    --host-addr 0.0.0.0 \
-   --port 3001 \
+   --port 3000 \
    --config shelley_testnet-config.json
 ```
 

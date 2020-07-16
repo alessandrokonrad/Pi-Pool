@@ -16,7 +16,8 @@ Basically we have two different popular CPU architectures. Let's only consider 6
 ## Getting started
 
 This guide is currently for the Haskell Testnet (HTN)
-<b>I will update the guide as soon as the the final mainnet candidate is out, at step 6 just replace the node version with the one you wish to install</b>
+
+<b>I will update the guide as soon as the the final mainnet candidate is out, at step 6 just replace the node version with the one you wish to install. And get the right config files.</b>
 
 #### 1. First of all let's update and upgrade our Ubuntu:
 ```

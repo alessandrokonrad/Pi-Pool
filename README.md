@@ -108,7 +108,7 @@ Coming soon!
 ## Run Ubuntu on a SSD
 Useful Resources:
 
-<a href="https://jamesachambers.com/raspberry-pi-4-usb-boot-config-guide-for-ssd-flash-drives/">Boot from SSD with SD Card as bootloader</a>
+<a href="https://jamesachambers.com/raspberry-pi-4-usb-boot-config-guide-for-ssd-flash-drives/">Run Ubuntu on SSD with SD Card as bootloader</a>
 
 <a href="https://www.raspberrypi.org/forums/viewtopic.php?t=278791">Directly boot from SSD</a>
 

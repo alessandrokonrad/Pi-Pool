@@ -105,7 +105,7 @@ That's it. Your node is now starting to sync!
 ## Setup a stakepool
 Coming soon!
 
-## USB Boot
+## Run Ubuntu on a SSD
 Useful Resources:
 
 <a href="https://jamesachambers.com/raspberry-pi-4-usb-boot-config-guide-for-ssd-flash-drives/">Boot from SSD with SD Card as bootloader</a>

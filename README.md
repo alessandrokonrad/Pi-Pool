@@ -105,6 +105,12 @@ That's it. Your node is now starting to sync!
 ## Setup a stakepool
 Coming soon!
 
+## USB Boot
+Useful Resources:
+
+<a href="https://jamesachambers.com/raspberry-pi-4-usb-boot-config-guide-for-ssd-flash-drives/">Boot from SSD with SD Card as bootloader</a>
+
+<a href="https://www.raspberrypi.org/forums/viewtopic.php?t=278791">Directly boot from SSD</a>
 
 ## Cross-building
 If you want to build your own Cabal binary for aarch64 or a different version of Cabal, follow <a href="/Crossbuilding.md">this</a> guide.

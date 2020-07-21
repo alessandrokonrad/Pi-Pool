@@ -1,6 +1,6 @@
 <p align="center"><img width="80px" src="https://github.com/alessandrokonrad/Pi-Pool/blob/master/images/logo.svg"></img></p>
 
-# Pi Pool
+# [BERRY] Pi Pool
 
 Pi Pool is a Cardano Stakepool on Raspberry Pi. Check out my <a href="https://pipool.online">website</a> to see more about my stakepool. You can support me by just delegating to my pool. I'm definitely around at mainnet release of Shelley with a stakepool!<br>
 This repository is a guide to setup a stakepool on a Raspberry Pi by your own.

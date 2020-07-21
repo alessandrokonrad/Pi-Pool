@@ -103,9 +103,9 @@ That's it. Your node is now starting to sync!
 
 
 ## Setup a stakepool
-I might create a detailed guide soon, on how to register a stakepool. There are plenty tutorials out there. I can recommend <a href="https://cardano-community.github.io/guild-operators/Scripts/cntools.html">CNTools</a> (make sure the CNTools version is compatible with the Cardano-Node version).
-
-Otherwise would follow the official guide of <a href="https://cardano-foundation-cardano.readthedocs-hosted.com/en/latest/getting-started/stake-pool-operators/index.html">IOHK</a>
+I might create a detailed guide soon, on how to register a stakepool. Anyway there are plenty tutorials out there: <br />
+I can recommend <a href="https://cardano-community.github.io/guild-operators/Scripts/cntools.html">CNTools</a> (make sure the CNTools version is compatible with the Cardano-Node version).<br />
+Otherwise I would follow the official guide of <a href="https://cardano-foundation-cardano.readthedocs-hosted.com/en/latest/getting-started/stake-pool-operators/index.html">cardano.org</a>
 
 ## Run Ubuntu on a SSD
 Useful Resources:

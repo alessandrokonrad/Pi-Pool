@@ -15,9 +15,8 @@ Basically we have two different popular CPU architectures. Let's only consider 6
 
 ## Getting started
 
-This guide is currently for the Haskell Testnet (HTN)
+This guide is currently for the Mainnet Candidate 2 (MC2).
 
-<b>I will update the guide as soon as the the final mainnet candidate is out, at step 6 just replace the node version with the one you wish to install. And get the right config files.</b>
 
 #### 1. First of all let's update and upgrade our Ubuntu:
 ```
@@ -68,10 +67,10 @@ git clone https://github.com/input-output-hk/cardano-node.git
 cd cardano-node
 echo -e "package cardano-crypto-praos\n  flags: -external-libsodium-vrf" > cabal.project.local
 git fetch --all --tags
-git checkout tags/1.14.0
+git checkout release/1.16.x
 cabal build all
-cp -p dist-newstyle/build/aarch64-linux/ghc-8.6.5/cardano-node-1.14.0/x/cardano-node/build/cardano-node/cardano-node ~/.local/bin/
-cp -p dist-newstyle/build/aarch64-linux/ghc-8.6.5/cardano-cli-1.14.0/x/cardano-cli/build/cardano-cli/cardano-cli ~/.local/bin/
+cp -p dist-newstyle/build/aarch64-linux/ghc-8.6.5/cardano-node-1.16.0/x/cardano-node/build/cardano-node/cardano-node ~/.local/bin/
+cp -p dist-newstyle/build/aarch64-linux/ghc-8.6.5/cardano-cli-1.16.0/x/cardano-cli/build/cardano-cli/cardano-cli ~/.local/bin/
 
 ```
 Finally we have our node. If everything worked fine, you should be able to type <code>cardano-cli</code> and <code>cardano-node</code>.
@@ -82,9 +81,10 @@ We need first of all some configuration files:
 ```
 mkdir pi-node
 cd pi-node
-wget https://hydra.iohk.io/job/Cardano/cardano-node/cardano-deployment/latest-finished/download/1/shelley_testnet-config.json
-wget https://hydra.iohk.io/job/Cardano/cardano-node/cardano-deployment/latest-finished/download/1/shelley_testnet-genesis.json
-wget https://hydra.iohk.io/job/Cardano/cardano-node/cardano-deployment/latest-finished/download/1/shelley_testnet-topology.json
+wget https://hydra.iohk.io/build/3556541/download/1/mainnet_candidate-config.json
+wget https://hydra.iohk.io/build/3556541/download/1/mainnet_candidate-byron-genesis.json
+wget https://hydra.iohk.io/build/3556541/download/1/mainnet_candidate-shelley-genesis.json
+wget https://hydra.iohk.io/build/3556541/download/1/mainnet_candidate-topology.json
 
 ```
 You can change "ViewMode" from "SimpleView to "LiveView" in shelley_testnet-config.json to get a fancy node monitoring.<br>

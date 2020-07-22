@@ -108,7 +108,7 @@ I can recommend <a href="https://cardano-community.github.io/guild-operators/Scr
 Otherwise I would follow the official guide of <a href="https://cardano-foundation-cardano.readthedocs-hosted.com/en/latest/getting-started/stake-pool-operators/index.html">cardano.org</a>
 
 ## Run Ubuntu on a SSD
-#### Running Ubuntu from SSD, while booting from SD:
+#### Running Ubuntu from SSD, while booting from SD card:
 
 1. Flash the Ubuntu image on your SSD and your SD card.
 2. Now go to to the boot partition of the SD card and change in cmdline.txt the root path to: <code>root=/dev/sda2</code>

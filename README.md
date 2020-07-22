@@ -87,7 +87,7 @@ wget https://hydra.iohk.io/build/3556541/download/1/mainnet_candidate-shelley-ge
 wget https://hydra.iohk.io/build/3556541/download/1/mainnet_candidate-topology.json
 
 ```
-You can change "ViewMode" from "SimpleView to "LiveView" in shelley_testnet-config.json to get a fancy node monitoring.<br>
+You can change "ViewMode" from "SimpleView to "LiveView" in mainnet_candidate-config.json to get a fancy node monitor.<br>
 Now start the node:
 ```
 cardano-node run \

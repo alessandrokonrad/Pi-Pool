@@ -11,7 +11,7 @@ Basically we have two different popular CPU architectures. Let's only consider 6
 ## Prerequesites
 
 * Raspberry Pi 4 with 8GB RAM (4GB version works only with Swap partition as extra RAM) 
-* Ubuntu 20.04 LTS <b>64-bit</b> (Very easy to install with <a href="https://www.raspberrypi.org/downloads/">Pi Imager</a>)
+* Ubuntu 20.04 LTS <b>64-bit</b> (Very easy to install with <a href="https://www.raspberrypi.org/downloads/">Pi Imager</a>. For running Ubuntu on SSD, check below)
 
 ## Getting started
 
@@ -119,7 +119,7 @@ This should boot now from the SD card, but the OS will run on the SSD then.
 Problems with running Ubuntu from USB 3.0:
 <a href="https://jamesachambers.com/raspberry-pi-4-usb-boot-config-guide-for-ssd-flash-drives/">Adding quirks to your chipset, if it's not working</a>
 
-I recently saw a post, where you could boot Ubuntu also from the SSD, so there is no need for the SD card anymore. I haven't tried that yes, but it might work. You can check that out:
+I recently saw a post, where you could boot Ubuntu also from the SSD, so there is no need for the SD card anymore. I haven't tried that yet, but it might work. You can check that out:
 <a href="https://www.raspberrypi.org/forums/viewtopic.php?t=278791">Directly boot from SSD</a>
 
 ## Cross-building

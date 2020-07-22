@@ -91,12 +91,12 @@ You can change "ViewMode" from "SimpleView to "LiveView" in shelley_testnet-conf
 Now start the node:
 ```
 cardano-node run \
-   --topology shelley_testnet-topology.json \
+   --topology mainnet_candidate-config.json \
    --database-path db \
    --socket-path db/socket \
    --host-addr 0.0.0.0 \
    --port 3000 \
-   --config shelley_testnet-config.json
+   --config mainnet_candidate-topology.json
 ```
 
 That's it. Your node is now starting to sync!

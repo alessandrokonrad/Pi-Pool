@@ -108,10 +108,18 @@ I can recommend <a href="https://cardano-community.github.io/guild-operators/Scr
 Otherwise I would follow the official guide of <a href="https://cardano-foundation-cardano.readthedocs-hosted.com/en/latest/getting-started/stake-pool-operators/index.html">cardano.org</a>
 
 ## Run Ubuntu on a SSD
-Useful Resources:
+Running Ubuntu from SSD, while booting from SD:
 
-<a href="https://jamesachambers.com/raspberry-pi-4-usb-boot-config-guide-for-ssd-flash-drives/">Run Ubuntu on SSD with SD Card as bootloader</a>
+1. Flash the Ubuntu image on your SSD and your SD card.
+2. Now go to to the boot partition of the SD card and change in cmdline.txt the root path to: <code>root=/dev/sda2</code>
+3. Insert the SD card into the Pi and the SSD into one of the USB 3.0 ports.
+This should boot now from the SD card, but the OS will run on the SSD then.
 
+
+Problems with running Ubuntu from USB 3.0:
+<a href="https://jamesachambers.com/raspberry-pi-4-usb-boot-config-guide-for-ssd-flash-drives/">Adding quirks to your chipset, if it's not working</a>
+
+I recently saw a post, where you could boot Ubuntu also from the SSD, so there is no need for the SD card anymore. I haven't tried that yes, but it might work. You can check that out:
 <a href="https://www.raspberrypi.org/forums/viewtopic.php?t=278791">Directly boot from SSD</a>
 
 ## Cross-building

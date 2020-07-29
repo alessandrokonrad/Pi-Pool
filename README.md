@@ -101,6 +101,8 @@ cardano-node run \
 
 That's it. Your node is now starting to sync!
 
+<b>Note:</b> The syncing process for the mainnet blockchain can take really long. My node also crashed sometimes during the syncing process. Having a backup machine (x86_64) where you sync the node and just copy the db on the Raspberry Pi, makes it much easier and faster. As soon as the Pi is in sync it runs really smooth and just uses about 5% of the CPU. 
+
 
 ## Setup a stakepool
 I might create a detailed guide soon, on how to register a stakepool. Anyway there are plenty tutorials out there: <br />

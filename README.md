@@ -15,7 +15,7 @@ Basically we have two different popular CPU architectures. Let's only consider 6
 
 ## Getting started
 
-This guide is currently for the Mainnet Candidate 2 (MC2).
+This guide is for the Cardano mainnet!
 
 
 #### 1. First of all let's update and upgrade our Ubuntu:
@@ -35,11 +35,11 @@ sudo apt-get install libsodium-dev build-essential pkg-config libffi-dev libgmp-
 sudo apt-get install -y haskell-platform
 ```
 Now you should have GHC 8.6.5 and Cabal 2.4. You can check that with <code>ghc --version</code> and <code>cabal --version</code>.
-GHC 8.6.5 is perfectly fine, but we need a higher Cabal version (3.0).<br>
+GHC 8.6.5 is perfectly fine, but we need a higher Cabal version (3.2).<br>
 
-#### 4. Get Cabal 3.0 and remove Cabal 2.4:
+#### 4. Get Cabal 3.2 and remove Cabal 2.4:
 ```
-wget https://github.com/alessandrokonrad/Pi-Pool/raw/master/aarch64/cabal3.0/cabal
+wget https://github.com/alessandrokonrad/Pi-Pool/raw/master/aarch64/cabal3.2/cabal
 chmod +x cabal
 mkdir -p ~/.local/bin
 mv cabal ~/.local/bin
@@ -67,10 +67,10 @@ git clone https://github.com/input-output-hk/cardano-node.git
 cd cardano-node
 echo -e "package cardano-crypto-praos\n  flags: -external-libsodium-vrf" > cabal.project.local
 git fetch --all --tags
-git checkout release/1.16.x
+git checkout tags/1.18.0
 cabal build all
-cp -p dist-newstyle/build/aarch64-linux/ghc-8.6.5/cardano-node-1.16.0/x/cardano-node/build/cardano-node/cardano-node ~/.local/bin/
-cp -p dist-newstyle/build/aarch64-linux/ghc-8.6.5/cardano-cli-1.16.0/x/cardano-cli/build/cardano-cli/cardano-cli ~/.local/bin/
+cp -p dist-newstyle/build/aarch64-linux/ghc-8.6.5/cardano-node-1.18.0/x/cardano-node/build/cardano-node/cardano-node ~/.local/bin/
+cp -p dist-newstyle/build/aarch64-linux/ghc-8.6.5/cardano-cli-1.18.0/x/cardano-cli/build/cardano-cli/cardano-cli ~/.local/bin/
 
 ```
 Finally we have our node. If everything worked fine, you should be able to type <code>cardano-cli</code> and <code>cardano-node</code>.
@@ -81,22 +81,22 @@ We need first of all some configuration files:
 ```
 mkdir pi-node
 cd pi-node
-wget https://hydra.iohk.io/build/3556541/download/1/mainnet_candidate-config.json
-wget https://hydra.iohk.io/build/3556541/download/1/mainnet_candidate-byron-genesis.json
-wget https://hydra.iohk.io/build/3556541/download/1/mainnet_candidate-shelley-genesis.json
-wget https://hydra.iohk.io/build/3556541/download/1/mainnet_candidate-topology.json
+wget https://hydra.iohk.io/build/3644329/download/1/mainnet-config.json
+wget https://hydra.iohk.io/build/3644329/download/1/mainnet-byron-genesis.json
+wget https://hydra.iohk.io/build/3644329/download/1/mainnet-shelley-genesis.json
+wget https://hydra.iohk.io/build/3644329/download/1/mainnet-topology.json
 
 ```
-You can change "ViewMode" from "SimpleView to "LiveView" in mainnet_candidate-config.json to get a fancy node monitor.<br>
+You can change "ViewMode" from "SimpleView to "LiveView" in mainnet-config.json to get a fancy node monitor.<br>
 Now start the node:
 ```
 cardano-node run \
-   --topology mainnet_candidate-config.json \
+   --topology mainnet-config.json \
    --database-path db \
    --socket-path db/socket \
    --host-addr 0.0.0.0 \
    --port 3000 \
-   --config mainnet_candidate-topology.json
+   --config mainnet-topology.json
 ```
 
 That's it. Your node is now starting to sync!

@@ -91,12 +91,12 @@ You can change "ViewMode" from "SimpleView to "LiveView" in mainnet-config.json 
 Now start the node:
 ```
 cardano-node run \
-   --topology mainnet-config.json \
+   --topology mainnet-topology.json \
    --database-path db \
    --socket-path db/socket \
    --host-addr 0.0.0.0 \
    --port 3000 \
-   --config mainnet-topology.json
+   --config mainnet-config.json
 ```
 
 That's it. Your node is now starting to sync!

@@ -1,0 +1,34 @@
+#!/bin/bash
+
+WALLET_PATH="$HOME/priv/wallet/$1"
+TMP="/opt/cardano/tmp"
+mkdir -p "$WALLET_PATH"
+
+cardano-cli shelley query protocol-parameters \
+    --mainnet \
+    --out-file "$TMP/params.json" \
+    --cardano-mode
+
+cardano-cli shelley address key-gen \
+    --verification-key-file "$WALLET_PATH/$1.payment.vkey" \
+    --signing-key-file "$WALLET_PATH/$1.payment.skey"
+
+cardano-cli shelley stake-address key-gen \
+    --verification-key-file "$WALLET_PATH/$1.stake.vkey" \
+    --signing-key-file "$WALLET_PATH/$1.stake.skey"
+
+cardano-cli shelley stake-address build \
+    --staking-verification-key-file "$WALLET_PATH/$1.stake.vkey" \
+    --out-file "$WALLET_PATH/$1.stake.addr" \
+    --mainnet
+
+cardano-cli shelley address build \
+    --payment-verification-key-file "$WALLET_PATH/$1.payment.vkey" \
+    --staking-verification-key-file "$WALLET_PATH/$1.stake.vkey" \
+    --out-file "$WALLET_PATH/$1.payment.addr" \
+    --mainnet
+
+for f in $WALLET_PATH/*; do (cat "${f}"; echo; echo) >> "$WALLET_PATH/$1.wallet.txt"; done
+printf "$1 Wallet\n\n" | cat - "$WALLET_PATH/$1.wallet.txt" > "$WALLET_PATH/temp" && mv "$WALLET_PATH/temp" "$WALLET_PATH/$1.wallet.txt"
+
+echo "$1 Wallet created!"

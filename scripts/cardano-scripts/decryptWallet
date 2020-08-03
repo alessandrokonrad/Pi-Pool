@@ -1,0 +1,19 @@
+#!/bin/bash
+
+TMP="/opt/cardano/tmp"
+WALLET_PATH="$HOME/priv/wallet/$1"
+
+read -s -p "Password: " PASSWORD
+echo
+
+echo "$PASSWORD" | gpg --decrypt --yes --batch --cipher-algo AES256 --passphrase-fd 0 --output "$WALLET_PATH/$1.payment.vkey" "$WALLET_PATH/$1.payment.vkey.gpg" >/dev/null && rm -f "$WALLET_PATH/$1.payment.vkey.gpg"
+echo "$PASSWORD" | gpg --decrypt --yes --batch --cipher-algo AES256 --passphrase-fd 0 --output "$WALLET_PATH/$1.payment.skey" "$WALLET_PATH/$1.payment.skey.gpg" >/dev/null && rm -f "$WALLET_PATH/$1.payment.skey.gpg"
+echo "$PASSWORD" | gpg --decrypt --yes --batch --cipher-algo AES256 --passphrase-fd 0 --output "$WALLET_PATH/$1.stake.vkey" "$WALLET_PATH/$1.stake.vkey.gpg" >/dev/null && rm -f "$WALLET_PATH/$1.stake.vkey.gpg"
+echo "$PASSWORD" | gpg --decrypt --yes --batch --cipher-algo AES256 --passphrase-fd 0 --output "$WALLET_PATH/$1.stake.skey" "$WALLET_PATH/$1.stake.skey.gpg" >/dev/null && rm -f "$WALLET_PATH/$1.stake.skey.gpg"
+
+
+if [ -f "$WALLET_PATH/$1.payment.vkey" ]; then
+   echo "$1 Wallet decrypted!"
+else
+   echo "Failed to decrypt $1 Wallet"
+fi

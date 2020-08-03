@@ -1,0 +1,22 @@
+#!/bin/bash
+
+TMP="/opt/cardano/tmp"
+WALLET_PATH="$HOME/priv/wallet/$1"
+
+read -s -p "Password: " PASSWORD
+echo
+read -s -p "Confirm Password: " CONFIRM_PASSWORD
+echo
+
+if [ "$PASSWORD" != "$CONFIRM_PASSWORD" ]; then
+   echo "Passwords do not match!"
+   exit
+fi
+
+
+echo "$PASSWORD" | gpg --symmetric --yes --batch --cipher-algo AES256 --passphrase-fd 0 --output "$WALLET_PATH/$1.payment.vkey.gpg" "$WALLET_PATH/$1.payment.vkey" >/dev/null && rm -f "$WALLET_PATH/$1.payment.vkey"
+echo "$PASSWORD" | gpg --symmetric --yes --batch --cipher-algo AES256 --passphrase-fd 0 --output "$WALLET_PATH/$1.payment.skey.gpg" "$WALLET_PATH/$1.payment.skey" >/dev/null && rm -f "$WALLET_PATH/$1.payment.skey"
+echo "$PASSWORD" | gpg --symmetric --yes --batch --cipher-algo AES256 --passphrase-fd 0 --output "$WALLET_PATH/$1.stake.vkey.gpg" "$WALLET_PATH/$1.stake.vkey" >/dev/null && rm -f "$WALLET_PATH/$1.stake.vkey"
+echo "$PASSWORD" | gpg --symmetric --yes --batch --cipher-algo AES256 --passphrase-fd 0 --output "$WALLET_PATH/$1.stake.skey.gpg" "$WALLET_PATH/$1.stake.skey" >/dev/null && rm -f "$WALLET_PATH/$1.stake.skey"
+
+echo "$1 Wallet encrypted!"

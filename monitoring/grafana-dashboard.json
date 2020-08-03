@@ -54,9 +54,7 @@
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
+          "calcs": ["mean"],
           "fields": "",
           "values": false
         }
@@ -76,40 +74,29 @@
       "type": "stat"
     },
     {
-      "cacheTimeout": null,
-      "datasource": "prometheus",
+      "datasource": null,
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "decimals": 0,
-          "mappings": [
-            {
-              "id": 0,
-              "op": "=",
-              "text": "N/A",
-              "type": 1,
-              "value": "null"
-            }
-          ],
-          "nullValueMode": "connected",
+          "custom": {
+            "align": null
+          },
+          "mappings": [],
+          "max": 8035200,
+          "min": 0,
           "thresholds": {
-            "mode": "absolute",
+            "mode": "percentage",
             "steps": [
               {
-                "color": "green",
+                "color": "light-red",
                 "value": null
               },
               {
-                "color": "red",
-                "value": 80
-              },
-              {
-                "color": "dark-purple",
-                "value": 90
+                "color": "semi-dark-purple",
+                "value": 30
               }
             ]
           },
-          "unit": "short"
+          "unit": "s"
         },
         "overrides": []
       },
@@ -119,17 +106,12 @@
         "x": 8,
         "y": 0
       },
-      "id": 45,
-      "interval": null,
-      "links": [],
-      "maxDataPoints": 100,
+      "id": 69,
       "options": {
         "displayMode": "gradient",
         "orientation": "horizontal",
         "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
+          "calcs": ["mean"],
           "fields": "",
           "values": false
         },
@@ -138,27 +120,27 @@
       "pluginVersion": "7.0.3",
       "targets": [
         {
-          "expr": "floor(avg(cardano_node_ChainDB_metrics_slotNum_int{alias=~\"block-producing\"})/3600)",
-          "instant": false,
+          "expr": "cardano_node_Forge_metrics_remainingKESPeriods_int * 129600",
+          "instant": true,
           "interval": "",
-          "legendFormat": "{{alias}}",
+          "legendFormat": "",
           "refId": "A"
         }
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Current KES Period",
+      "title": "KES Expiry",
       "type": "bargauge"
     },
     {
       "aliasColors": {
-        "block-producing": "dark-purple",
-        "relay": "semi-dark-purple"
+        "Pi-Core": "semi-dark-purple",
+        "Pi-Relay": "light-purple"
       },
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "prometheus",
+      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -174,8 +156,7 @@
         "y": 0
       },
       "hiddenSeries": false,
-      "id": 18,
-      "interval": "",
+      "id": 67,
       "legend": {
         "avg": false,
         "current": false,
@@ -201,25 +182,17 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "cardano_node_ChainDB_metrics_density_real * 100",
-          "format": "time_series",
-          "intervalFactor": 1,
+          "expr": "cardano_node_BlockFetchDecision_peers_connectedPeers_int{alias=\"Pi-Relay\"}",
+          "interval": "",
           "legendFormat": "{{alias}}",
           "refId": "A"
-        },
-        {
-          "expr": "cardano_node_metrics_ChainDB_density_real * 100",
-          "format": "time_series",
-          "intervalFactor": 1,
-          "legendFormat": "{{alias}}",
-          "refId": "B"
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Cardano Chain Density",
+      "title": "Connected Peers",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -235,7 +208,7 @@
       },
       "yaxes": [
         {
-          "format": "none",
+          "format": "short",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -291,9 +264,7 @@
       "options": {
         "orientation": "auto",
         "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
+          "calcs": ["mean"],
           "fields": "",
           "values": false
         },
@@ -331,12 +302,8 @@
                 "value": null
               },
               {
-                "color": "dark-purple",
+                "color": "light-red",
                 "value": 80
-              },
-              {
-                "color": "dark-red",
-                "value": 90
               }
             ]
           },
@@ -352,12 +319,10 @@
       },
       "id": 61,
       "options": {
-        "displayMode": "gradient",
+        "displayMode": "lcd",
         "orientation": "horizontal",
         "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
+          "calcs": ["mean"],
           "fields": "",
           "values": false
         },
@@ -380,6 +345,8 @@
     },
     {
       "aliasColors": {
+        "Pi-Core": "semi-dark-purple",
+        "Pi-Relay": "light-purple",
         "block-producing": "semi-dark-purple",
         "relay": "light-purple"
       },
@@ -510,12 +477,10 @@
       },
       "id": 63,
       "options": {
-        "displayMode": "gradient",
+        "displayMode": "lcd",
         "orientation": "horizontal",
         "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
+          "calcs": ["mean"],
           "fields": "",
           "values": false
         },
@@ -576,9 +541,7 @@
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
+          "calcs": ["mean"],
           "fields": "",
           "values": false
         }
@@ -587,7 +550,7 @@
       "targets": [
         {
           "expr": "cardano_node_metrics_Forge_forged_int / cardano_node_metrics_Forge_node_is_leader_int * 100",
-          "instant": true,
+          "instant": false,
           "interval": "",
           "legendFormat": "{{alias}}",
           "refId": "A"
@@ -633,9 +596,7 @@
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
+          "calcs": ["mean"],
           "fields": "",
           "values": false
         }
@@ -644,7 +605,7 @@
       "targets": [
         {
           "expr": "cardano_node_metrics_Forge_forged_int",
-          "instant": true,
+          "instant": false,
           "interval": "",
           "legendFormat": "{{alias}}",
           "refId": "A"
@@ -690,9 +651,7 @@
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
+          "calcs": ["mean"],
           "fields": "",
           "values": false
         }
@@ -701,7 +660,7 @@
       "targets": [
         {
           "expr": "cardano_node_metrics_Forge_node_is_leader_int",
-          "instant": true,
+          "instant": false,
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -713,7 +672,12 @@
       "type": "stat"
     },
     {
-      "aliasColors": {},
+      "aliasColors": {
+        "Pi-Core": "semi-dark-purple",
+        "Pi-Relay": "light-purple",
+        "block-producing": "dark-purple",
+        "relay": "semi-dark-purple"
+      },
       "bars": false,
       "dashLength": 10,
       "dashes": false,
@@ -733,7 +697,7 @@
         "y": 8
       },
       "hiddenSeries": false,
-      "id": 41,
+      "id": 18,
       "interval": "",
       "legend": {
         "avg": false,
@@ -760,17 +724,25 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "cardano_node_metrics_Forge_forged_int - cardano_node_metrics_Forge_adopted_int",
-          "interval": "",
+          "expr": "cardano_node_ChainDB_metrics_density_real * 100",
+          "format": "time_series",
+          "intervalFactor": 1,
           "legendFormat": "{{alias}}",
           "refId": "A"
+        },
+        {
+          "expr": "cardano_node_metrics_ChainDB_density_real * 100",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{alias}}",
+          "refId": "B"
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Rejected blocks since last restart",
+      "title": "Cardano Chain Density",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -786,12 +758,11 @@
       },
       "yaxes": [
         {
-          "decimals": 0,
-          "format": "short",
+          "format": "none",
           "label": null,
           "logBase": 1,
           "max": null,
-          "min": "0",
+          "min": null,
           "show": true
         },
         {
@@ -843,9 +814,7 @@
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
+          "calcs": ["mean"],
           "fields": "",
           "values": false
         }
@@ -853,7 +822,7 @@
       "pluginVersion": "7.0.3",
       "targets": [
         {
-          "expr": "cardano_node_ChainDB_metrics_epoch_int",
+          "expr": "cardano_node_ChainDB_metrics_epoch_int{alias=\"Pi-Core\"}",
           "instant": true,
           "interval": "",
           "legendFormat": "{{alias}}",
@@ -863,12 +832,7 @@
       "timeFrom": null,
       "timeShift": null,
       "title": "Epoch",
-      "transformations": [
-        {
-          "id": "reduce",
-          "options": {}
-        }
-      ],
+      "transformations": [],
       "type": "stat"
     },
     {
@@ -906,9 +870,7 @@
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
+          "calcs": ["mean"],
           "fields": "",
           "values": false
         }
@@ -916,26 +878,23 @@
       "pluginVersion": "7.0.3",
       "targets": [
         {
-          "expr": "cardano_node_ChainDB_metrics_slotInEpoch_int",
+          "expr": "cardano_node_ChainDB_metrics_slotInEpoch_int{alias=\"Pi-Core\"}",
           "instant": true,
           "interval": "",
-          "legendFormat": "",
+          "legendFormat": "{{alias}}",
           "refId": "A"
         }
       ],
       "timeFrom": null,
       "timeShift": null,
       "title": "Slot",
-      "transformations": [
-        {
-          "id": "reduce",
-          "options": {}
-        }
-      ],
+      "transformations": [],
       "type": "stat"
     },
     {
       "aliasColors": {
+        "Pi-Core": "semi-dark-purple",
+        "Pi-Relay": "light-purple",
         "block-producing": "dark-purple",
         "relay": "semi-dark-purple"
       },
@@ -1039,6 +998,8 @@
     },
     {
       "aliasColors": {
+        "Pi-Core": "semi-dark-purple",
+        "Pi-Relay": "light-purple",
         "block-producing": "dark-purple",
         "relay": "semi-dark-purple"
       },
@@ -1147,10 +1108,7 @@
       }
     },
     {
-      "aliasColors": {
-        "block-producing": "dark-purple",
-        "relay": "semi-dark-purple"
-      },
+      "aliasColors": {},
       "bars": false,
       "dashLength": 10,
       "dashes": false,
@@ -1170,7 +1128,8 @@
         "y": 16
       },
       "hiddenSeries": false,
-      "id": 28,
+      "id": 41,
+      "interval": "",
       "legend": {
         "avg": false,
         "current": false,
@@ -1196,21 +1155,17 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(cardano_node_ChainDB_metrics_blockNum_int[150s])*60",
+          "expr": "cardano_node_metrics_Forge_forged_int - cardano_node_metrics_Forge_adopted_int",
+          "interval": "",
           "legendFormat": "{{alias}}",
           "refId": "A"
-        },
-        {
-          "expr": "rate(cardano_node_metrics_ChainDB_blockNum_int[150s])*60",
-          "legendFormat": "{{alias}}",
-          "refId": "B"
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Block sync speed (blocks / min)",
+      "title": "Rejected blocks since last restart",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1226,11 +1181,12 @@
       },
       "yaxes": [
         {
+          "decimals": 0,
           "format": "short",
           "label": null,
           "logBase": 1,
           "max": null,
-          "min": null,
+          "min": "0",
           "show": true
         },
         {
@@ -1355,6 +1311,8 @@
     },
     {
       "aliasColors": {
+        "Pi-Core": "semi-dark-purple",
+        "Pi-Relay": "light-purple",
         "block-producing": "dark-purple",
         "relay": "semi-dark-purple"
       },
@@ -1456,7 +1414,12 @@
       }
     },
     {
-      "aliasColors": {},
+      "aliasColors": {
+        "Pi-Core": "semi-dark-purple",
+        "Pi-Relay": "light-purple",
+        "block-producing": "dark-purple",
+        "relay": "semi-dark-purple"
+      },
       "bars": false,
       "dashLength": 10,
       "dashes": false,
@@ -1476,8 +1439,7 @@
         "y": 24
       },
       "hiddenSeries": false,
-      "id": 16,
-      "interval": "",
+      "id": 28,
       "legend": {
         "avg": false,
         "current": false,
@@ -1503,16 +1465,21 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "node_filefd_allocated",
+          "expr": "rate(cardano_node_ChainDB_metrics_blockNum_int[150s])*60",
           "legendFormat": "{{alias}}",
           "refId": "A"
+        },
+        {
+          "expr": "rate(cardano_node_metrics_ChainDB_blockNum_int[150s])*60",
+          "legendFormat": "{{alias}}",
+          "refId": "B"
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "File Descriptors",
+      "title": "Block sync speed (blocks / min)",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1528,7 +1495,7 @@
       },
       "yaxes": [
         {
-          "format": "none",
+          "format": "short",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -1551,6 +1518,7 @@
     },
     {
       "aliasColors": {
+        "Pi-Core": "semi-dark-purple",
         "block-producing": "dark-purple"
       },
       "bars": false,
@@ -1647,6 +1615,8 @@
     },
     {
       "aliasColors": {
+        "Pi-Core": "semi-dark-purple",
+        "Pi-Relay": "light-purple",
         "block-producing": "dark-purple",
         "relay": "semi-dark-purple"
       },
@@ -1748,15 +1718,11 @@
       }
     },
     {
-      "aliasColors": {
-        "1h Cluster Data Received, bytes": "dark-purple",
-        "1h Cluster Data Transmitted, bytes": "semi-dark-purple"
-      },
+      "aliasColors": {},
       "bars": false,
       "dashLength": 10,
       "dashes": false,
       "datasource": "prometheus",
-      "description": "/",
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -1772,7 +1738,7 @@
         "y": 32
       },
       "hiddenSeries": false,
-      "id": 25,
+      "id": 16,
       "interval": "",
       "legend": {
         "avg": false,
@@ -1799,22 +1765,16 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(node_network_receive_bytes_total{alias!~\"monitoring.*\",device!~\"lo\"}[1h])) * 3600",
-          "legendFormat": "1h Cluster Data Received, bytes",
+          "expr": "node_filefd_allocated",
+          "legendFormat": "{{alias}}",
           "refId": "A"
-        },
-        {
-          "expr": "sum(rate(node_network_transmit_bytes_total{alias!~\"monitoring.*\",device!~\"lo\"}[1h])) * 3600",
-          "hide": false,
-          "legendFormat": "1h Cluster Data Transmitted, bytes",
-          "refId": "B"
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Cluster Aggregate Data Transfer, 1 hr Rolling Window",
+      "title": "File Descriptors",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1830,18 +1790,16 @@
       },
       "yaxes": [
         {
-          "decimals": null,
-          "format": "decbytes",
-          "label": "",
+          "format": "none",
+          "label": null,
           "logBase": 1,
           "max": null,
           "min": null,
           "show": true
         },
         {
-          "decimals": null,
           "format": "short",
-          "label": "",
+          "label": null,
           "logBase": 1,
           "max": null,
           "min": null,
@@ -1855,6 +1813,8 @@
     },
     {
       "aliasColors": {
+        "Pi-Core": "semi-dark-purple",
+        "Pi-Relay": "light-purple",
         "block-producing": "dark-purple",
         "relay": "semi-dark-purple"
       },
@@ -1951,6 +1911,8 @@
     },
     {
       "aliasColors": {
+        "Pi-Core": "semi-dark-purple",
+        "Pi-Relay": "light-purple",
         "block-producing": "dark-purple",
         "relay": "semi-dark-purple"
       },
@@ -2046,12 +2008,15 @@
       }
     },
     {
-      "aliasColors": {},
+      "aliasColors": {
+        "1h Cluster Data Received, bytes": "dark-purple",
+        "1h Cluster Data Transmitted, bytes": "semi-dark-purple"
+      },
       "bars": false,
       "dashLength": 10,
       "dashes": false,
       "datasource": "prometheus",
-      "description": "Shows how many times cardano related services have been restarted within a 1 hour lookback window",
+      "description": "/",
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -2067,7 +2032,7 @@
         "y": 40
       },
       "hiddenSeries": false,
-      "id": 35,
+      "id": 25,
       "interval": "",
       "legend": {
         "avg": false,
@@ -2094,18 +2059,22 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "round(increase(node_systemd_unit_state{name=~\"cardano.*|byron.*|explorer.*\",state=\"active\"}[1h:10s])) > 0",
-          "hide": false,
-          "interval": "",
-          "legendFormat": "{{alias}}-{{name}}",
+          "expr": "sum(rate(node_network_receive_bytes_total{alias!~\"monitoring.*\",device!~\"lo\"}[1h])) * 3600",
+          "legendFormat": "1h Cluster Data Received, bytes",
           "refId": "A"
+        },
+        {
+          "expr": "sum(rate(node_network_transmit_bytes_total{alias!~\"monitoring.*\",device!~\"lo\"}[1h])) * 3600",
+          "hide": false,
+          "legendFormat": "1h Cluster Data Transmitted, bytes",
+          "refId": "B"
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Cardano Service Restarts Per Hour",
+      "title": "Cluster Aggregate Data Transfer, 1 hr Rolling Window",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -2121,16 +2090,18 @@
       },
       "yaxes": [
         {
-          "format": "none",
-          "label": null,
+          "decimals": null,
+          "format": "decbytes",
+          "label": "",
           "logBase": 1,
           "max": null,
           "min": null,
           "show": true
         },
         {
+          "decimals": null,
           "format": "short",
-          "label": null,
+          "label": "",
           "logBase": 1,
           "max": null,
           "min": null,
@@ -2334,15 +2305,12 @@
       }
     },
     {
-      "aliasColors": {
-        "Aggregate cluster egress (transmit)": "semi-dark-purple",
-        "Aggregate cluster ingress (received)": "dark-purple"
-      },
+      "aliasColors": {},
       "bars": false,
       "dashLength": 10,
       "dashes": false,
       "datasource": "prometheus",
-      "description": "20 second rolling time average",
+      "description": "Shows how many times cardano related services have been restarted within a 1 hour lookback window",
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -2358,7 +2326,7 @@
         "y": 48
       },
       "hiddenSeries": false,
-      "id": 22,
+      "id": 35,
       "interval": "",
       "legend": {
         "avg": false,
@@ -2385,21 +2353,18 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(node_network_receive_bytes_total{alias!~\"monitoring.*\",device!~\"lo\"}[20s])) * 8",
-          "legendFormat": "Aggregate cluster ingress (received)",
+          "expr": "round(increase(node_systemd_unit_state{name=~\"cardano.*|byron.*|explorer.*\",state=\"active\"}[1h:10s])) > 0",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "{{alias}}-{{name}}",
           "refId": "A"
-        },
-        {
-          "expr": "sum(rate(node_network_transmit_bytes_total{alias!~\"monitoring.*\",device!~\"lo\"}[20s]) * -8)",
-          "legendFormat": "Aggregate cluster egress (transmit)",
-          "refId": "B"
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Cluster Aggregate Bandwidth (bps)",
+      "title": "Cardano Service Restarts Per Hour",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -2415,18 +2380,16 @@
       },
       "yaxes": [
         {
-          "decimals": null,
-          "format": "decbits",
-          "label": "",
+          "format": "none",
+          "label": null,
           "logBase": 1,
           "max": null,
           "min": null,
           "show": true
         },
         {
-          "decimals": null,
           "format": "short",
-          "label": "",
+          "label": null,
           "logBase": 1,
           "max": null,
           "min": null,
@@ -2440,6 +2403,8 @@
     },
     {
       "aliasColors": {
+        "Pi-Core": "semi-dark-purple",
+        "Pi-Relay": "light-purple",
         "block-producing": "dark-purple",
         "relay": "semi-dark-purple"
       },
@@ -2633,6 +2598,113 @@
     },
     {
       "aliasColors": {
+        "Aggregate cluster egress (transmit)": "semi-dark-purple",
+        "Aggregate cluster ingress (received)": "dark-purple"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "description": "20 second rolling time average",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 56
+      },
+      "hiddenSeries": false,
+      "id": 22,
+      "interval": "",
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sum(rate(node_network_receive_bytes_total{alias!~\"monitoring.*\",device!~\"lo\"}[20s])) * 8",
+          "legendFormat": "Aggregate cluster ingress (received)",
+          "refId": "A"
+        },
+        {
+          "expr": "sum(rate(node_network_transmit_bytes_total{alias!~\"monitoring.*\",device!~\"lo\"}[20s]) * -8)",
+          "legendFormat": "Aggregate cluster egress (transmit)",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Cluster Aggregate Bandwidth (bps)",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "decbits",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "decimals": null,
+          "format": "short",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Pi-Core": "semi-dark-purple",
+        "Pi-Relay": "light-purple",
         "block-producing": "dark-purple",
         "relay": "semi-dark-purple"
       },
@@ -2652,8 +2724,8 @@
       "gridPos": {
         "h": 8,
         "w": 8,
-        "x": 16,
-        "y": 56
+        "x": 8,
+        "y": 59
       },
       "hiddenSeries": false,
       "id": 34,
@@ -2826,7 +2898,7 @@
       }
     }
   ],
-  "refresh": false,
+  "refresh": "30s",
   "schemaVersion": 25,
   "style": "dark",
   "tags": [],
@@ -2849,20 +2921,10 @@
       "2h",
       "1d"
     ],
-    "time_options": [
-      "5m",
-      "15m",
-      "1h",
-      "6h",
-      "12h",
-      "24h",
-      "2d",
-      "7d",
-      "30d"
-    ]
+    "time_options": ["5m", "15m", "1h", "6h", "12h", "24h", "2d", "7d", "30d"]
   },
   "timezone": "",
   "title": "Pi Pool",
   "uid": "pi-node",
-  "version": 13
+  "version": 29
 }

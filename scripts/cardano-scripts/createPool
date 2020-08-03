@@ -1,0 +1,44 @@
+#!/bin/bash
+
+POOL_PATH="$HOME/priv/pool/$1"
+TMP="/opt/cardano/tmp"
+mkdir -p "$POOL_PATH"
+
+cardano-cli shelley node key-gen-KES \
+    --verification-key-file "$POOL_PATH/$1.kes.vkey" \
+    --signing-key-file "$POOL_PATH/$1.kes.skey"
+
+cardano-cli shelley node key-gen \
+    --cold-verification-key-file "$POOL_PATH/$1.node.vkey" \
+    --cold-signing-key-file "$POOL_PATH/$1.node.skey" \
+    --operational-certificate-issue-counter "$POOL_PATH/$1.node.counter"
+
+slotsPerKESPeriod=$(cat "$RELAY/files/mainnet-shelley-genesis.json" | jq -r '.slotsPerKESPeriod')
+echo slotsPerKESPeriod: "${slotsPerKESPeriod}"
+
+slotNo=$(cardano-cli shelley query tip --mainnet | jq -r '.slotNo')
+echo slotNo: "${slotNo}"
+
+kesPeriod=$((${slotNo} / ${slotsPerKESPeriod}))
+echo kesPeriod: "${kesPeriod}"
+
+cardano-cli shelley node issue-op-cert \
+    --kes-verification-key-file "$POOL_PATH/$1.kes.vkey" \
+    --cold-signing-key-file "$POOL_PATH/$1.node.skey" \
+    --operational-certificate-issue-counter "$POOL_PATH/$1.node.counter" \
+    --kes-period "$kesPeriod" \
+    --out-file "$POOL_PATH/$1.node.cert"
+
+cardano-cli shelley node key-gen-VRF \
+    --verification-key-file "$POOL_PATH/$1.vrf.vkey" \
+    --signing-key-file "$POOL_PATH/$1.vrf.skey"
+
+
+for f in $POOL_PATH/*; do (cat "${f}"; echo; echo) >> "$POOL_PATH/$1.pool.txt"; done
+printf "$1 Pool\n\n" | cat - "$POOL_PATH/$1.pool.txt" > "$POOL_PATH/temp" && mv "$POOL_PATH/temp" "$POOL_PATH/$1.pool.txt"
+
+
+echo "Start core node with the new keys of $1!"
+
+echo "For Pool registration host your poolmeta.json now"
+echo "Edit registerPool for adjusting Pledge, Cost, etc."

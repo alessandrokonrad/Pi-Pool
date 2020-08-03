@@ -1,0 +1,30 @@
+#!/bin/bash
+
+tmux new -s cardano -d
+
+#creating windows
+tmux split-window -h -t cardano
+tmux select-pane -t 0
+
+tmux split-window -v -t cardano
+tmux select-pane -t 2
+tmux split-window -v -t cardano
+
+#core node
+tmux select-pane -t 0
+tmux send-keys "cardano-node run --topology <path to topology> --database-path <path to db> --socket-path <path to socket> --host-addr <ip> --port <port> --config <path to config> --shelley-kes-key <path to KES skey> --shelley-vrf-key <path to VRF skey> --shelley-operational-certificate <path to node cert>" C-m
+
+#system info
+tmux select-pane -t 1
+tmux send-keys 'neofetch' C-m
+
+#relay node
+tmux select-pane -t 2
+tmux send-keys "cardano-node run --topology <path to topology> --database-path <path to db> --socket-path <path to socket> --host-addr <ip> --port <port> --config <path to config>" C-m
+
+#system performance
+tmux select-pane -t 3
+tmux send-keys 'htop' C-m
+
+
+tmux a -t cardano

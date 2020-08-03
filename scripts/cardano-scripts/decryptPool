@@ -1,0 +1,18 @@
+#!/bin/bash
+
+TMP="/opt/cardano/tmp"
+POOL_PATH="$HOME/priv/pool/$1"
+
+read -s -p "Password: " PASSWORD
+echo
+
+echo "$PASSWORD" | gpg --decrypt --yes --batch --cipher-algo AES256 --passphrase-fd 0 --output "$POOL_PATH/$1.node.vkey" "$POOL_PATH/$1.node.vkey.gpg" >/dev/null && rm -f "$POOL_PATH/$1.node.vkey.gpg"
+echo "$PASSWORD" | gpg --decrypt --yes --batch --cipher-algo AES256 --passphrase-fd 0 --output "$POOL_PATH/$1.node.skey" "$POOL_PATH/$1.node.skey.gpg" >/dev/null && rm -f "$POOL_PATH/$1.node.skey.gpg"
+echo "$PASSWORD" | gpg --decrypt --yes --batch --cipher-algo AES256 --passphrase-fd 0 --output "$POOL_PATH/$1.node.counter" "$POOL_PATH/$1.node.counter.gpg" >/dev/null && rm -f "$POOL_PATH/$1.node.counter.gpg"
+
+
+if [ -f "$POOL_PATH/$1.node.skey" ]; then
+   echo "Cold keys of $1 decrypted!"
+else
+   echo "Failed to decrypt cold keys of $1"
+fi

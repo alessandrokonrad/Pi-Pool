@@ -105,7 +105,7 @@ That's it. Your node is now starting to sync!
 
 
 ## Update the node
-If a new version is released, you can update your installed node with the following commands (replace <version> with the latest version number): 
+If a new version is released, you can update your installed node with the following commands (replace `<version>` with the latest version number): 
 ```
 cd cardano-node
 git fetch --all --tags

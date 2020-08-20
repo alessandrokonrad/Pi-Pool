@@ -132,7 +132,9 @@ This should boot now from the SD card, but the OS will run on the SSD then.
 
 #### Running and booting from SSD (no need for SD card):
 
-I recently saw a post, where you could boot Ubuntu also from the SSD, so there is no need for the SD card anymore. I haven't tried that yet, but it might work. You can check that out:
+<strike>I recently saw a post, where you could boot Ubuntu also from the SSD, so there is no need for the SD card anymore. I haven't tried that yet, but it might work.</strike>
+I can confirm this works!!
+You can check that out:
 <a href="https://www.raspberrypi.org/forums/viewtopic.php?t=278791">Directly boot from SSD</a>
 
 #### Problems with running Ubuntu from USB 3.0:

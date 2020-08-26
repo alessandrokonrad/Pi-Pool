@@ -1,4 +1,6 @@
-# Full Guide
+# How to setup Cardano Node on Raspberry Pi 4 (Full Guide)
+
+
 
 ## Prerequesites
 
@@ -99,6 +101,16 @@ sudo rpi-eeprom-update -d -f /lib/firmware/raspberrypi/bootloader/stable/pieepro
 
 For more information on how to run Ubuntu on SSD, check out <a href="https://www.raspberrypi.org/forums/viewtopic.php?t=278791">this</a> forum post.
 
-## 3. Installing Cardano Node
-
-https://hydra.iohk.io/job/Cardano/cardano-node/cardano-deployment/latest-finished/download/1/
+## 3. Installing Cardano node
+1. Download the start.sh script and execute it. This script will install all necessary dependencies for the Cardano node:
+```
+wget https://raw.githubusercontent.com/alessandrokonrad/Pi-Pool/master/scripts/fullGuide/start.sh
+chmod +x start.sh
+./start.sh
+```
+2. Install cardano-node and cardano-cli:
+```
+wget https://raw.githubusercontent.com/alessandrokonrad/Pi-Pool/master/scripts/fullGuide/installCardano.sh
+chmod +x installCardano.sh
+./installCardano.sh
+```

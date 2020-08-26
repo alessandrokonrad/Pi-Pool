@@ -15,8 +15,8 @@
 
 ## 1. Upgrading Bootloader
 
-In order to boot the Raspberry Pi from the SSD, we need to upgrade the bootloader firmware of the Pi. Normally the Pi can just boot from the SD card slot.
-We want to run the Pi on SSD because performance and speed is much higher. Also it's much more reliable, because a SD card is not meant for a lot of read and write actions. These are the steps you need to take:
+In order to boot the Raspberry Pi from the SSD, we need to upgrade the bootloader firmware of the Pi. Normally the Pi can just boot from the microSD card slot.
+We want to run the Pi on SSD because performance and speed is much higher. Also it's much more reliable, because a microSD card is not meant for a lot of read and write actions. These are the steps you need to take:
 
 1. Download <a href="https://www.raspberrypi.org/downloads/">Pi Imager</a> and install it.
 2. Insert the microSD Card in the Card Reader and plug it in your PC.

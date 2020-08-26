@@ -23,5 +23,4 @@ sudo rm /usr/bin/cabal
 echo 'export PATH="~/.local/bin:$PATH"' >> .bashrc
 source ~/.bashrc
 echo
-echo "Removing start.sh script"
 echo "Done!"

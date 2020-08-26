@@ -24,5 +24,4 @@ echo 'export PATH="~/.local/bin:$PATH"' >> .bashrc
 source ~/.bashrc
 echo
 echo "Removing start.sh script"
-rm -f start.sh
 echo "Done!"

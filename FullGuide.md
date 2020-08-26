@@ -62,12 +62,13 @@ sudo rpi-eeprom-update -d -f /lib/firmware/raspberrypi/bootloader/stable/pieepro
 4. Click "Write" and wait until finished
 5. You should now have two partitions on your SSD looking like this:
    <img src="https://github.com/alessandrokonrad/Pi-Pool/raw/master/images/partitions.png"></img>
-6. For the following it's important to have access to Linux commands on your PC (Windows users can use WSL):
-<br />
+6. For the following it's important to have access to Linux commands on your PC (Windows users can use WSL):<br />
+    
     1. Go in the system-boot partition of your SSD and open up a terminal inside (Right Click --> Open Terminal). Run this command:
     ```
     zcat vmlinuz > vmlinux
     ```
+    
     2. Now open the config.txt file and replace the [pi4] section with this:
     ```
     [pi4]
@@ -79,12 +80,12 @@ sudo rpi-eeprom-update -d -f /lib/firmware/raspberrypi/bootloader/stable/pieepro
     ```
     3. Now run this command, also from system-boot partition:
     ```
-    wget auto_decompress_kernel
+    wget https://raw.githubusercontent.com/alessandrokonrad/Pi-Pool/master/scripts/fullGuide/auto_decompress_kernel
     sudo chmod +x auto_decompress_kernel
     ```
     4. Now go in the writable partition and go to /ect/apt/apt.conf.d/ and open up a new terminal inside:
     ```
-    wget 999_decompress_rpi_kernel
+    wget https://raw.githubusercontent.com/alessandrokonrad/Pi-Pool/master/scripts/fullGuide/999_decompress_rpi_kernel
     sudo chmod +x 999_decompress_rpi_kernel
     ```
 

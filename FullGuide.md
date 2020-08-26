@@ -19,7 +19,7 @@ We want to run the Pi on SSD because performance and speed is much higher. Also 
 1. Download <a href="https://www.raspberrypi.org/downloads/">Pi Imager</a> and install it.
 2. Insert the microSD Card in the Card Reader and plug it in your PC.
 3. Open Pi Imager and click "Choose OS" -> Raspberry Pi OS (other) -> Raspberry Pi OS Lite (32-bit)
-4. Click on "Choose SD Card" and select the SD Card
+4. Click on "Choose SD Card" and select the microSD Card
 5. Click "Write" and wait until finished
 6. Now remove the microSD Card from the PC and plug it into the Pi
 7. Connect a monitor and plugin the keyboard in a USB 2.0 slot (the left ones), also make sure to connect the LAN cabel

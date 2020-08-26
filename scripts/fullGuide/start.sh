@@ -1,3 +1,6 @@
+#!/bin/bash
+set -e
+
 # This script installs all necessary dependencies to build the the cardano-node and cardano-cli binaries
 
 echo "Updating Ubuntu"

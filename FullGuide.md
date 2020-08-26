@@ -1,4 +1,4 @@
-# How to setup Cardano Node on Raspberry Pi 4 (Full Guide)
+# How to setup the Cardano Node on Raspberry Pi 4 (Full Guide)
 
 
 

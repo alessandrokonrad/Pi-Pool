@@ -67,10 +67,10 @@ git clone https://github.com/input-output-hk/cardano-node.git
 cd cardano-node
 echo -e "package cardano-crypto-praos\n  flags: -external-libsodium-vrf" > cabal.project.local
 git fetch --all --tags
-git checkout tags/1.19.0
+git checkout tags/1.19.1
 cabal build all
-cp -p dist-newstyle/build/aarch64-linux/ghc-8.6.5/cardano-node-1.19.0/x/cardano-node/build/cardano-node/cardano-node ~/.local/bin/
-cp -p dist-newstyle/build/aarch64-linux/ghc-8.6.5/cardano-cli-1.19.0/x/cardano-cli/build/cardano-cli/cardano-cli ~/.local/bin/
+cp -p dist-newstyle/build/aarch64-linux/ghc-8.6.5/cardano-node-1.19.1/x/cardano-node/build/cardano-node/cardano-node ~/.local/bin/
+cp -p dist-newstyle/build/aarch64-linux/ghc-8.6.5/cardano-cli-1.19.1/x/cardano-cli/build/cardano-cli/cardano-cli ~/.local/bin/
 
 ```
 Finally we have our node. If everything worked fine, you should be able to type <code>cardano-cli</code> and <code>cardano-node</code>.
@@ -81,10 +81,10 @@ We need first of all some configuration files:
 ```
 mkdir pi-node
 cd pi-node
-wget https://hydra.iohk.io/build/3644329/download/1/mainnet-config.json
-wget https://hydra.iohk.io/build/3644329/download/1/mainnet-byron-genesis.json
-wget https://hydra.iohk.io/build/3644329/download/1/mainnet-shelley-genesis.json
-wget https://hydra.iohk.io/build/3644329/download/1/mainnet-topology.json
+wget https://hydra.iohk.io/job/Cardano/cardano-node/cardano-deployment/latest-finished/download/1/mainnet-config.json
+wget https://hydra.iohk.io/job/Cardano/cardano-node/cardano-deployment/latest-finished/download/1/mainnet-byron-genesis.json
+wget https://hydra.iohk.io/job/Cardano/cardano-node/cardano-deployment/latest-finished/download/1/mainnet-shelley-genesis.json
+wget https://hydra.iohk.io/job/Cardano/cardano-node/cardano-deployment/latest-finished/download/1/mainnet-topology.json
 
 ```
 You can change "ViewMode" from "SimpleView to "LiveView" in mainnet-config.json to get a fancy node monitor.<br>

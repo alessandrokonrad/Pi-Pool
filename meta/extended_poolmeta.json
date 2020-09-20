@@ -1,7 +1,7 @@
 {
   "info": {
-    "url_png_icon_64x64": "http(s) url to pool icon",
-    "url_png_logo": "http(s) url to pool logo",
+    "url_png_icon_64x64": "https://raw.githubusercontent.com/alessandrokonrad/Pi-Pool/master/images/logo64_64.png",
+    "url_png_logo": "https://raw.githubusercontent.com/alessandrokonrad/Pi-Pool/master/images/logo.png",
     "location": "Munich, Germany",
     "social": {
       "twitter_handle": "berry_ales",

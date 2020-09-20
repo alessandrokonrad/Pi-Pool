@@ -3,5 +3,5 @@
   "ticker": "BERRY",
   "description": "Decentralizing Cardano in the most beautiful way - Let's shape the future together!",
   "homepage": "https://pipool.online",
-  "extended": "https://raw.githubusercontent.com/alessandrokonrad/Pi-Pool/master/meta/extended_poolmeta.json"
+  "extended": "https://github.com/alessandrokonrad/Pi-Pool/raw/master/meta/extended_poolmeta.json"
 }

@@ -10,7 +10,7 @@
     },
     "about": {
       "me": "My name is Alessandro Konrad, I'm a single pool operator and a computer science student from Germany.",
-      "server": "Berry is a stakepool, that runs on Raspberry Pi for true dezentralization in a power efficient way."
+      "server": "Berry is a stakepool, that runs on Raspberry Pi for true decentralization in a power efficient way."
     }
   },
   "my-pool-ids": {

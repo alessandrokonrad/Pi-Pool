@@ -37,20 +37,23 @@ sudo apt-get install libsodium-dev build-essential pkg-config libffi-dev libgmp-
 #### 3. Get the Haskell platform:
 
 ```
-sudo apt-get install -y haskell-platform
+https://downloads.haskell.org/ghc/8.6.5/ghc-8.6.5-aarch64-ubuntu18.04-linux.tar.xz
+rm ghc-8.6.5-aarch64-ubuntu18.04-linux.tar.xz
+cd ghc-8.6.5/
+./configure
+sudo make install
+rm -r ghc-8.6.5/
 ```
 
-Now you should have GHC 8.6.5 and Cabal 2.4. You can check that with <code>ghc --version</code> and <code>cabal --version</code>.
-GHC 8.6.5 is perfectly fine, but we need a higher Cabal version (3.2).<br>
+Now you should have GHC 8.6.5. You can check that with <code>ghc --version</code>.
 
-#### 4. Get Cabal 3.2 and remove Cabal 2.4:
+#### 4. Get Cabal 3.2:
 
 ```
 wget https://github.com/alessandrokonrad/Pi-Pool/raw/master/aarch64/cabal3.2/cabal
 chmod +x cabal
 mkdir -p ~/.local/bin
 mv cabal ~/.local/bin
-sudo rm /usr/bin/cabal
 ```
 
 You can also build your own Cabal binary for aarch64. Look <a href="/Crossbuilding.md">here</a>.

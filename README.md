@@ -37,7 +37,8 @@ sudo apt-get install libsodium-dev build-essential pkg-config libffi-dev libgmp-
 #### 3. Get the Haskell platform:
 
 ```
-https://downloads.haskell.org/ghc/8.6.5/ghc-8.6.5-aarch64-ubuntu18.04-linux.tar.xz
+wget https://downloads.haskell.org/ghc/8.6.5/ghc-8.6.5-aarch64-ubuntu18.04-linux.tar.xz
+tar -xf ghc-8.6.5-aarch64-ubuntu18.04-linux.tar.xz
 rm ghc-8.6.5-aarch64-ubuntu18.04-linux.tar.xz
 cd ghc-8.6.5/
 ./configure

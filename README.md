@@ -43,6 +43,7 @@ rm ghc-8.6.5-aarch64-ubuntu18.04-linux.tar.xz
 cd ghc-8.6.5/
 ./configure
 sudo make install
+cd ../
 rm -r ghc-8.6.5/
 ```
 
@@ -84,10 +85,10 @@ git clone https://github.com/input-output-hk/cardano-node.git
 cd cardano-node
 echo -e "package cardano-crypto-praos\n  flags: -external-libsodium-vrf" > cabal.project.local
 git fetch --all --tags
-git checkout tags/1.20.0
+git checkout tags/1.21.1
 cabal build all
-cp -p dist-newstyle/build/aarch64-linux/ghc-8.6.5/cardano-node-1.20.0/x/cardano-node/build/cardano-node/cardano-node ~/.local/bin/
-cp -p dist-newstyle/build/aarch64-linux/ghc-8.6.5/cardano-cli-1.20.0/x/cardano-cli/build/cardano-cli/cardano-cli ~/.local/bin/
+cp -p dist-newstyle/build/aarch64-linux/ghc-8.6.5/cardano-node-1.21.1/x/cardano-node/build/cardano-node/cardano-node ~/.local/bin/
+cp -p dist-newstyle/build/aarch64-linux/ghc-8.6.5/cardano-cli-1.21.1/x/cardano-cli/build/cardano-cli/cardano-cli ~/.local/bin/
 
 ```
 

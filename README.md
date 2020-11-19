@@ -16,6 +16,10 @@ Basically we have two different popular CPU architectures. Let's only consider 6
 
 ## Getting started
 
+## Note
+<b>IOG is currently improving the performance of the Cardano Node on ARM devices. Join this <a href="https://t.me/joinchat/FeKTCBu-pn5OUZUz4joF2w">group</a> to find out more.
+I wouldn't recommend you building the node with the GHC 8.6.5 compiler for ARM, like in this guide.</b>
+
 This guide is for the Cardano mainnet!
 
 #### 1. First of all let's update and upgrade our Ubuntu:

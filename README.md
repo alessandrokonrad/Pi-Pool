@@ -81,6 +81,8 @@ If you want to monitor your node, you can do this with the command <code>startMo
 
 This will create a Grafana instance at port 5000. A custom dashboard is also already preinstalled. You can find it in the left panel under Dashboard -> Manage. You should find a Dashboard called "Raspberry Pi Node".
 
+The whole monitoring configuration you can find under <code>/opt/cardano/monitoring</code>
+
 Use <code>stopMonitor</code> to stop the monitoring process.
 
 

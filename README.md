@@ -42,7 +42,8 @@ If your Pi already boots from SSD, you can skip this section.
 
 ### Running the Image
 These are the login credentials:
-Username:<code>ada</code>
+
+Username:<code>ada</code> <br />
 Password:<code>lovelace</code>
 
 If you want to change the password, you can do this with <code>passwd</code>

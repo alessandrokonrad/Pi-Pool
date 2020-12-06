@@ -11,96 +11,45 @@ Basically we have two different popular CPU architectures. Let's only consider 6
 
 ## Prerequesites
 
-- Raspberry Pi 4 with 8GB RAM (4GB version works only with Swap partition as extra RAM)
-- Ubuntu 20.04 LTS <b>64-bit</b> (Very easy to install with <a href="https://www.raspberrypi.org/downloads/">Pi Imager</a>. For running Ubuntu on SSD, check below)
+- Raspberry Pi 4 4GB RAM or 8GB RAM (recommended)
+- SSD (at least 20GB)
+- microSD Card
+- Eluteng SATA USB 3.0 Adapter (<a>list of other working adapters</a>)
 
 ## Getting started
 
-## Note
-<b>IOG is currently improving the performance of the Cardano Node on ARM devices. Join this <a href="https://t.me/joinchat/FeKTCBu-pn5OUZUz4joF2w">group</a> to find out more.
-I wouldn't recommend you building the node with the GHC 8.6.5 compiler for ARM any longer, like in this guide.</b>
+### Upgrading the Bootloader
 
-This guide is for the Cardano mainnet!
+If your Pi already boots from SSD, you can skip this section.
 
-#### 1. First of all let's update and upgrade our Ubuntu:
+1. Download <a href="https://www.raspberrypi.org/downloads/">Pi Imager</a> and install it
+2. Insert the microSD Card in a Card Reader and plug it in your PC
+3. Open Pi Imager and click "Choose OS" -> Misc utility images -> Raspberry Pi 4 EEPROM boot recovery
+4. Click on "Choose SD Card" and select the microSD Card
+5. Click "Write" and wait until finished
+6. Now remove the microSD Card from the PC and plug it into the Pi
+7. Connect a monitor to the Pi and turn it on
+8. If you screen shows a <b>green</b> color, the bootloader had been successfully updated!
+9. Remove the microSD from the Pi
 
-```
-sudo apt-get update
-sudo apt-get upgrade
-```
+### Install the Image
+1. Download the latest release
+2. Plug in the SSD in your PC
+3. Open <a href="https://www.raspberrypi.org/downloads/">Pi Imager</a> and scroll down to "Use custom", select the downloaded release
+4. Click on "Choose SD Card" and select the SSD
+5. Click "Write" and wait until finished
+6. You can now connect the SSD with the Pi and turn it on.
 
-You might reboot your Pi afterwards.
+### Running the Image
+These are the login credentials:
+Username:<code>ada</code>
+Password:<code>lovelace</code>
 
-#### 2. Install necessary dependencies:
+If you want to change the password, you can do this with <code>passwd</code>
 
-```
-sudo apt-get install libsodium-dev build-essential pkg-config libffi-dev libgmp-dev libssl-dev libtinfo-dev libsystemd-dev zlib1g-dev make g++ tmux git jq wget libncursesw5 llvm -y
+### Running a Cardano-Node:
 
-```
-
-#### 3. Get the Haskell platform:
-
-```
-wget https://downloads.haskell.org/ghc/8.6.5/ghc-8.6.5-aarch64-ubuntu18.04-linux.tar.xz
-tar -xf ghc-8.6.5-aarch64-ubuntu18.04-linux.tar.xz
-rm ghc-8.6.5-aarch64-ubuntu18.04-linux.tar.xz
-cd ghc-8.6.5/
-./configure
-sudo make install
-cd ../
-rm -r ghc-8.6.5/
-```
-
-Now you should have GHC 8.6.5. You can check that with <code>ghc --version</code>.
-
-#### 4. Get Cabal 3.2:
-
-```
-wget https://github.com/alessandrokonrad/Pi-Pool/raw/master/aarch64/cabal3.2/cabal
-chmod +x cabal
-mkdir -p ~/.local/bin
-mv cabal ~/.local/bin
-```
-
-You can also build your own Cabal binary for aarch64. Look <a href="/Crossbuilding.md">here</a>.
-
-#### 5. Add the new Cabal to PATH:
-
-Open the .bashrc file in your home directory and add at the bottom:
-
-```
-export PATH="~/.local/bin:$PATH"
-```
-
-To make the the new PATH active you can either reboot the Pi or type <code>source .bashrc</code> from your home directory. Then run:
-
-```
-cabal update
-```
-
-<br>
-
-Now we are ready to build the Cardano-Node!
-
-#### 6. Clone the cardano-node repository from GitHub and build it (this takes a while):
-
-```
-git clone https://github.com/input-output-hk/cardano-node.git
-cd cardano-node
-echo -e "package cardano-crypto-praos\n  flags: -external-libsodium-vrf" > cabal.project.local
-git fetch --all --tags
-git checkout tags/1.21.1
-cabal build all
-cp -p dist-newstyle/build/aarch64-linux/ghc-8.6.5/cardano-node-1.21.1/x/cardano-node/build/cardano-node/cardano-node ~/.local/bin/
-cp -p dist-newstyle/build/aarch64-linux/ghc-8.6.5/cardano-cli-1.21.1/x/cardano-cli/build/cardano-cli/cardano-cli ~/.local/bin/
-
-```
-
-Finally we have our node. If everything worked fine, you should be able to type <code>cardano-cli</code> and <code>cardano-node</code>.
-
-#### 7. Running a node:
-
-We need first of all some configuration files:
+A sample node configuration folder is already preinstalled. These are the steps to follow:
 
 ```
 mkdir pi-node
@@ -112,10 +61,10 @@ wget https://hydra.iohk.io/job/Cardano/cardano-node/cardano-deployment/latest-fi
 
 ```
 
-You can change "ViewMode" from "SimpleView to "LiveView" in mainnet-config.json to get a fancy node monitor.<br>
-Now start the node:
 
+### Starting a Cardano-Node:
 ```
+cd pi-node
 cardano-node run \
    --topology mainnet-topology.json \
    --database-path db \
@@ -127,51 +76,27 @@ cardano-node run \
 
 That's it. Your node is now starting to sync!
 
-<b>Note:</b> The syncing process for the mainnet blockchain can take really long. My node also crashed sometimes during the syncing process. Having a backup machine (x86_64) where you sync the node and just copy the db on the Raspberry Pi, makes it much easier and faster. As soon as the Pi is in sync it runs really smooth and just uses about 5% of the CPU.
+### Monitoring
+If you want to monitor your node, you can do this with the command <code>startMonitor</code>.
 
-## Update the node
+This will create a Grafana instance at port 5000. A custom dashboard is also already preinstalled. You can find it in the left panel under Dashboard -> Manage. You should find a Dashboard called "Raspberry Pi Node".
 
-If a new version is released, you can update your installed node with the following commands (replace `<version>` with the latest version number):
+Use <code>stopMonitor</code> to stop the monitoring process.
 
-```
-cd cardano-node
-git fetch --all --tags
-git checkout tags/<version>
-cabal update
-cabal build all
-cp -p dist-newstyle/build/aarch64-linux/ghc-8.6.5/cardano-node-<version>/x/cardano-node/build/cardano-node/cardano-node ~/.local/bin/
-cp -p dist-newstyle/build/aarch64-linux/ghc-8.6.5/cardano-cli-<version>/x/cardano-cli/build/cardano-cli/cardano-cli ~/.local/bin/
-```
 
-## Setup a stakepool
+### Updating the Cardano-Node
 
-I might create a detailed guide soon, on how to register a stakepool. Anyway there are plenty tutorials out there: <br />
-I can recommend <a href="https://cardano-community.github.io/guild-operators/Scripts/cntools.html">CNTools</a> (make sure the CNTools version is compatible with the Cardano-Node version).<br />
+Currently there is no auto updater built in the Image. In order to update the version, this needs to be done manually.
+To get the latest Cardano-Node version, join this <a href="https://t.me/joinchat/FeKTCBu-pn5OUZUz4joF2w">Telgram group</a>.
+If there is one, download it and replace the the new binaries with the current ones under <code>~/.local/bin</code> (cardano-node and cardano-cli)
+
+
+## Setup a Stake Pool
+
+I can recommend <a href="https://cardano-community.github.io/guild-operators/#/">CNTools</a> (make sure the CNTools version is compatible with the Cardano-Node version).<br />
 Otherwise I would follow the official guide of <a href="https://cardano-foundation-cardano.readthedocs-hosted.com/en/latest/getting-started/stake-pool-operators/index.html">cardano.org</a>
-
-## Run Ubuntu on a SSD
-
-#### Running Ubuntu from SSD, while booting from SD card:
-
-1. Flash the Ubuntu image on your SSD and your SD card.
-2. Now go to to the boot partition of the SD card and change in cmdline.txt the root path to: <code>root=/dev/sda2</code>
-3. Insert the SD card into the Pi and the SSD into one of the USB 3.0 ports.
-   This should boot now from the SD card, but the OS will run on the SSD then.
-
-#### Running and booting from SSD (no need for SD card):
-
-You can check that out:
-<a href="https://www.raspberrypi.org/forums/viewtopic.php?t=278791">Directly boot from SSD</a>
-
-#### Problems with running Ubuntu from USB 3.0:
-
-<a href="https://jamesachambers.com/raspberry-pi-4-usb-boot-config-guide-for-ssd-flash-drives/">Adding quirks to your chipset, if it's not working</a>
-
-## Cross-building
-
-If you want to build your own Cabal binary for aarch64 or a different version of Cabal, follow <a href="/Crossbuilding.md">this</a> guide.
 
 ## Port forwarding
 
 Go to your router settings. You can access them via your browser with the IP address of the router (e.g. 192.168.178.1 or if you have a FritzBox with fritz.box).
-Then look for a option Port Forwarding. Choose the IP address of your relay node(s) and open its/their port(s). Allow TCP and UDP. Then save it and that's it.
+Then look for an option "Port Forwarding". Choose the IP address of your node(s) and open its/their port(s). Allow TCP. Then save it and that's it.

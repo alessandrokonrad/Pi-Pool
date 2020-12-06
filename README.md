@@ -13,7 +13,7 @@ Basically we have two different popular CPU architectures. Let's only consider 6
 
 - Raspberry Pi 4 4GB RAM or 8GB RAM (recommended)
 - SSD (at least 20GB)
-- microSD Card
+- microSD Card (needed to upgrade the bootloader)
 - Eluteng SATA USB 3.0 Adapter (<a href="https://jamesachambers.com/raspberry-pi-4-usb-boot-config-guide-for-ssd-flash-drives/">list of other working adapters</a>)
 
 ## Getting started

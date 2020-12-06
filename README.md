@@ -49,7 +49,7 @@ If you want to change the password, you can do this with <code>passwd</code>
 
 ### Running a Cardano-Node:
 
-A sample node configuration folder is already preinstalled. These are the steps to follow:
+A sample node configuration folder is already preinstalled. To reproduce:
 
 ```
 mkdir pi-node

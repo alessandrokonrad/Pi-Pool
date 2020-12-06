@@ -33,7 +33,7 @@ If your Pi already boots from SSD, you can skip this section.
 9. Remove the microSD from the Pi
 
 ### Install the Image
-1. Download the latest <a href="https://github.com/alessandrokonrad/Pi-Pool/releases/download/1.0.0/ubuntu-cardano.img.gz">release</a>
+1. Download the latest <a href="https://drive.google.com/u/0/uc?export=download&confirm=iXTs&id=1Gr0iCZHM8tALZ5g6qrZzLkfZPxA5K9NN">release</a>
 2. Plug in the SSD in your PC
 3. Open <a href="https://www.raspberrypi.org/downloads/">Pi Imager</a> and scroll down to "Use custom", select the downloaded release
 4. Click on "Choose SD Card" and select the SSD

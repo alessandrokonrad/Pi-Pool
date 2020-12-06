@@ -14,7 +14,7 @@ Basically we have two different popular CPU architectures. Let's only consider 6
 - Raspberry Pi 4 4GB RAM or 8GB RAM (recommended)
 - SSD (at least 20GB)
 - microSD Card
-- Eluteng SATA USB 3.0 Adapter (<a>list of other working adapters</a>)
+- Eluteng SATA USB 3.0 Adapter (<a href="https://jamesachambers.com/raspberry-pi-4-usb-boot-config-guide-for-ssd-flash-drives/">list of other working adapters</a>)
 
 ## Getting started
 
@@ -33,7 +33,7 @@ If your Pi already boots from SSD, you can skip this section.
 9. Remove the microSD from the Pi
 
 ### Install the Image
-1. Download the latest release
+1. Download the latest <a href="https://github.com/alessandrokonrad/Pi-Pool/releases/download/1.0.0/ubuntu-cardano.img.gz">release</a>
 2. Plug in the SSD in your PC
 3. Open <a href="https://www.raspberrypi.org/downloads/">Pi Imager</a> and scroll down to "Use custom", select the downloaded release
 4. Click on "Choose SD Card" and select the SSD

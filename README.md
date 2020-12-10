@@ -19,7 +19,7 @@ Basically we have two different popular CPU architectures. Let's only consider 6
 ## Getting started
 
 ## Note
-<b>Cardano-Node version <code>1.24.2</code> has been released. The image comes with 1.23.0, so you should directly update the node after installing the image, in order to also survive the Hard Fork event on the 16th of december.
+<b>Cardano-Node version <code>1.24.2</code> has been released. This image comes with 1.23.0, so you should directly update the node after installing the image, in order to also survive the Hard Fork event on december the 16th.
    
 Download 1.24.2 <a href="https://dl.dropbox.com/s/0vyoj52uqpl3zr9/aarch64-unknown-linux-musl-cardano-node-400d18092ce604352cf36fe5f105b0d7c78be074.zip">here</a>
 

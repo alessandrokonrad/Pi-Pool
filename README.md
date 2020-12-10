@@ -96,7 +96,10 @@ If there is one, download it and replace the new binaries with the current ones 
 
 ## Setup a Stake Pool
 
-I can recommend <a href="https://cardano-community.github.io/guild-operators/#/">CNTools</a> (make sure the CNTools version is compatible with the Cardano-Node version).<br />
+I can recommend <a href="https://cardano-community.github.io/guild-operators/#/">CNTools</a> (make sure the CNTools version is compatible with the Cardano-Node version).
+
+The guide of <a href="https://www.coincashew.com/coins/overview-ada/guide-how-to-build-a-haskell-stakepool-node">CoinCashew</a> is also really helpful.
+
 Otherwise I would follow the official guide of <a href="https://cardano-foundation-cardano.readthedocs-hosted.com/en/latest/getting-started/stake-pool-operators/index.html">cardano.org</a>
 
 ## Port forwarding

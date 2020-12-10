@@ -18,6 +18,14 @@ Basically we have two different popular CPU architectures. Let's only consider 6
 
 ## Getting started
 
+## Note
+<b>Cardano-Node version <code>1.24.2</code> has been released. The image comes with 1.23.0, so you should directly update the node after installing the image, in order to also survive the Hard Fork event on the 16th of december.
+   
+Download 1.24.2 <a href="https://dl.dropbox.com/s/0vyoj52uqpl3zr9/aarch64-unknown-linux-musl-cardano-node-400d18092ce604352cf36fe5f105b0d7c78be074.zip">here</a>
+
+Scroll down to "Updating the Cardano-Node" if you don't know how to update the node version.
+</b>
+
 ### Upgrading the Bootloader
 
 If your Pi already boots from SSD, you can skip this section.

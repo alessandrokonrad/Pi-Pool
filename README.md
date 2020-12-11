@@ -88,7 +88,17 @@ That's it. Your node is now starting to sync!
 ### Monitoring
 If you want to monitor your node, you can do this with the command <code>startMonitor</code>.
 
+You can access another instance of terminal by pressing <code>alt+F2-F12</code> buttons. <code>alt+F1</code> should take you back to the running node.
+
 This will create a Grafana instance at port 5000. A custom dashboard is also already preinstalled. You can find it in the left panel under Dashboard -> Manage. You should find a Dashboard called "Raspberry Pi Node".
+
+To connect to it find your ip addresss by typing: <code>ip a</code>
+
+In your browser type your ip address and the port number: <code>XXX.XXX.X.X:5000</code>
+
+Default Credentials are:<br />
+Username: <code>admin</code><br />
+Password: <code>admin</code>
 
 The whole monitoring configuration you can find under <code>/opt/cardano/monitoring</code>
 

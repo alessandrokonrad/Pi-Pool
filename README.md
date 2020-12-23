@@ -58,6 +58,13 @@ If you want to change the password, you can do this with <code>passwd</code>
 
 ### Running a Cardano-Node:
 
+#### Headless Tip
+   1. Using the <code>screen</code> command will allow you to exit the ssh session and keep the node running.
+   2. To exit <code>screen</code> type <code>ctrl - a</code>immediately followed by <code>ctrl - d</code>.
+   3. Then log out of ssh
+   4. When you want to resume, ssh back in and type <code>screen -r</code>. This should bring up the screen with the node script still running.
+    
+
 A sample node configuration folder is already preinstalled. To reproduce:
 
 ```
@@ -86,9 +93,12 @@ cardano-node run \
 That's it. Your node is now starting to sync!
 
 ### Monitoring
-If you want to monitor your node, you can do this with the command <code>startMonitor</code>.
 
-You can access another instance of terminal by pressing <code>alt+F2-F12</code> buttons. <code>alt+F1</code> should take you back to the running node.
+* **With Head** You can access another instance of terminal by pressing <code>alt+F2-F12</code> buttons. <code>alt+F1</code> should take you back to the running node.
+
+* **Headless** follow steps [here](#headless-tip) however before quitting ssh startup the monitoring service.
+
+To monitor your node, you can do this with the command <code>startMonitor</code>.
 
 This will create a Grafana instance at port 5000. A custom dashboard is also already preinstalled. You can find it in the left panel under Dashboard -> Manage. You should find a Dashboard called "Raspberry Pi Node".
 

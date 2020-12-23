@@ -96,9 +96,9 @@ That's it. Your node is now starting to sync!
 
 * **With Head** You can access another instance of terminal by pressing <code>alt+F2-F12</code> buttons. <code>alt+F1</code> should take you back to the running node.
 
-* **Headless** follow steps [here](#headless-tip) however before quitting ssh startup the monitoring service.
+* **Headless** follow steps [above](#headless-tip). Before quitting ssh startup the monitoring service.
 
-To monitor your node, you can do this with the command <code>startMonitor</code>.
+If you want to monitor your node, you can do this with the command <code>startMonitor</code>.
 
 This will create a Grafana instance at port 5000. A custom dashboard is also already preinstalled. You can find it in the left panel under Dashboard -> Manage. You should find a Dashboard called "Raspberry Pi Node".
 

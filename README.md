@@ -18,13 +18,21 @@ Basically we have two different popular CPU architectures. Let's only consider 6
 
 ## Getting started
 
-## Note
-<b>Cardano-Node version <code>1.24.2</code> has been released. This image comes with 1.23.0, so you should directly update the node after installing the image, in order to also survive the Hard Fork event on december the 16th.
+### Note
+<b>Cardano-Node version <code>1.25.1</code> has been released. This image comes with 1.23.0, so you should directly update the node after installing the image, in order to also survive the Mary Hard Fork at the end of February.
    
-Download 1.24.2 <a href="https://dl.dropbox.com/s/0vyoj52uqpl3zr9/aarch64-unknown-linux-musl-cardano-node-400d18092ce604352cf36fe5f105b0d7c78be074.zip">here</a>
+Download 1.25.1 <a href="https://dl.dropbox.com/s/iukbylce8t8lc59/aarch64-unknown-linux-musl-cardano-node-9a7331cce5e8bc0ea9c6bfa1c28773f4c5a7000f.zip">here</a>
 
 Scroll down to "Updating the Cardano-Node" if you don't know how to update the node version.
+
+Changes needed:
+
+Remove "ChainDB" from all metrics in Grafana, so that it can be displayed correctly again.
+E.g.: cardano_node_ChainDB_metrics_epoch_int -> cardano_node_metrics_epoch_int
+
+<a href="https://github.com/input-output-hk/cardano-node/releases/tag/1.25.1">Full Release Notes</a>
 </b>
+##
 
 ### Upgrading the Bootloader
 
@@ -111,6 +119,21 @@ Currently there is no auto updater built in the Image. In order to update the ve
 To get the latest Cardano-Node version, join this <a href="https://t.me/joinchat/FeKTCBu-pn5OUZUz4joF2w">Telgram group</a>.
 If there is one, download it and replace the new binaries with the current ones under <code>~/.local/bin</code> (cardano-node and cardano-cli)
 
+Redownload the the config file: <br />
+``` wget https://hydra.iohk.io/job/Cardano/cardano-node/cardano-deployment/latest-finished/download/1/mainnet-config.json ``` <br />
+Change the following parameters in the config file:
+```
+  ...
+  "TraceBlockFetchDecisions": true,
+  ...
+  "hasEKG": 12600,
+  "hasPrometheus": [
+    "127.0.0.1",
+    12700
+  ],
+  ...
+```
+
 
 ## Setup a Stake Pool
 
@@ -119,6 +142,8 @@ I can recommend <a href="https://cardano-community.github.io/guild-operators/#/"
 The guide of <a href="https://www.coincashew.com/coins/overview-ada/guide-how-to-build-a-haskell-stakepool-node">CoinCashew</a> is also really helpful.
 
 Otherwise I would follow the official guide of <a href="https://cardano-foundation-cardano.readthedocs-hosted.com/en/latest/getting-started/stake-pool-operators/index.html">cardano.org</a>
+
+For JavaScript enthusiasts this could be helpful: <a href="https://github.com/Berry-Pool/cardanocli-js">cardanocli-js</a>
 
 ## Port forwarding
 

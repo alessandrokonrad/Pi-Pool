@@ -116,8 +116,9 @@ Use <code>stopMonitor</code> to stop the monitoring process.
 ### Updating the Cardano-Node
 
 Currently there is no auto updater built in the Image. In order to update the version, this needs to be done manually.
-To get the latest Cardano-Node version, join this <a href="https://t.me/joinchat/FeKTCBu-pn5OUZUz4joF2w">Telgram group</a>.
-If there is one, download it and replace the new binaries with the current ones under <code>~/.local/bin</code> (cardano-node and cardano-cli)
+To get the latest Cardano-Node version, join this <a href="https://t.me/joinchat/FeKTCBu-pn5OUZUz4joF2w">Telgram group</a> or check in the Getting started section under Note, if there is something new.
+
+Download it and replace the new binaries with the current ones under <code>~/.local/bin</code> (cardano-node and cardano-cli)
 
 Redownload the the config file: <br />
 ``` wget https://hydra.iohk.io/job/Cardano/cardano-node/cardano-deployment/latest-finished/download/1/mainnet-config.json ``` <br />

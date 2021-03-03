@@ -14,7 +14,7 @@ Basically we have two different popular CPU architectures. Let's only consider 6
 - Raspberry Pi 4 4GB RAM or 8GB RAM (recommended)
 - SSD (at least 20GB)
 - microSD Card (needed to upgrade the bootloader)
-- Eluteng SATA USB 3.0 Adapter (<a href="https://jamesachambers.com/raspberry-pi-4-usb-boot-config-guide-for-ssd-flash-drives/">list of other working adapters</a>)
+- SATA USB 3.0 Adapter (<a href="https://jamesachambers.com/raspberry-pi-4-usb-boot-config-guide-for-ssd-flash-drives/">list of working adapters</a>)
 
 ## Getting started
 
@@ -36,7 +36,7 @@ E.g.: cardano_node_ChainDB_metrics_epoch_int -> cardano_node_metrics_epoch_int
 
 ### Upgrading the Bootloader
 
-If your Pi already boots from SSD, you can skip this section.
+If your Pi already boots from SSD (<b>recently shipped Pi 4 have USB Booting already flashed on</b>) you can skip this section.
 
 1. Download <a href="https://www.raspberrypi.org/downloads/">Pi Imager</a> and install it
 2. Insert the microSD Card in a Card Reader and plug it in your PC

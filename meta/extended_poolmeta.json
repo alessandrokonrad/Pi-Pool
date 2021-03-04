@@ -9,8 +9,8 @@
       "github_handle": "alessandrokonrad"
     },
     "about": {
-      "me": "My name is Alessandro Konrad, I'm a single pool operator and a computer science student from Germany.",
-      "server": "Berry is a stakepool, that runs on Raspberry Pi for true decentralization in a power efficient way."
+      "me": "My name is Alessandro, I'm a single pool operator and a computer science student from Germany.",
+      "server": "Berry is the first Stake Pool on Raspberry Pis and it's operational since the first day of Shelley. Here to truly decentralize Cardano in a power efficient way!"
     }
   },
   "my-pool-ids": {

@@ -19,9 +19,9 @@ Basically we have two different popular CPU architectures. Let's only consider 6
 ## Getting started
 
 ### Note
-<b>Cardano-Node version <code>1.26.2</code> has been released! This image comes with 1.23.0, so you should directly update the node after installing the image. 1.23.0 can't connect with the network anymore since December 2020.
+<b>Cardano-Node version <code>1.27.0</code> has been released! This image comes with 1.23.0, so you should directly update the node after installing the image. 1.23.0 can't connect with the network anymore since December 2020.
    
-Download 1.26.2 <a href="https://ci.zw3rk.com/build/1755/download/1/aarch64-unknown-linux-musl-cardano-node-1.26.2.zip">here</a>
+Download 1.27.0 <a href="https://ci.zw3rk.com/build/1758/download/1/aarch64-unknown-linux-musl-cardano-node-1.27.0.zip">here</a>
 
 Scroll down to "Updating the Cardano-Node" if you don't know how to update the node version.
 
@@ -30,7 +30,7 @@ Changes needed:
 Remove "ChainDB" from all metrics in Grafana, so that it can be displayed correctly again.
 E.g.: cardano_node_ChainDB_metrics_epoch_int -> cardano_node_metrics_epoch_int
 
-<a href="https://github.com/input-output-hk/cardano-node/releases/tag/1.26.2">Full Release Notes</a>
+<a href="https://github.com/input-output-hk/cardano-node/releases/tag/1.27.0">Full Release Notes</a>
 </b>
 ##
 
